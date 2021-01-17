@@ -6,16 +6,67 @@
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .home-background { background: green }
+    .bg-osteolia { background: #3f84b7 }
+    .text-osteolia { color: #3f84b7 }
+    .btn-outline-osteolia { color: #3f84b7; border-color:#3f84b7; } 
 </style>
 
-<!-- <div class="example-wrapper"> -->
-    <h2>Hello {{ controller_name }}! ✅</h2>
+	{# navbar toggles at sm breakpoint #}
+	<header>
+		<div class="navbar navbar-expand-sm navbar-light sticky-top bd-navbar bg-osteolia">
+		     <nav class="container-lg flex-wrap flex-sm-nowrap">
+		  	    <a class="navbar-brand text-light" href="#">Osteolia</a>
+			    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				    <span class="navbar-toggler-icon"></span>
+			    </button>
+			    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			        <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+			        	<li class="nav-item text-light invisible">
+					        <a class="nav-link" aria-current="page" href="#">Produit</a>    		
+			        	</li>
+			        	<li class="nav-item text-light invisible">
+					        <a class="nav-link">Tarif</a>    		
+			        	</li>
+		        	</ul>
+		        	<div class="me-2">
+		        		<button class="btn btn-outline-light">Connexion</button>
+		    		</div>
+		    	</div>
+		     </nav>
+	    </div>
+	 </header>
 
-    Coucou ! </br>
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/djo/www/osteolia/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/djo/www/osteolia/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
+	<main class="container-lg">
+	  	<div class="row py-5">
+	  		<div class="col align-self-center">
+			    <h1 class="text-osteolia">Bienvenue sur osteolia !</h1>
+			    <p class="lead">
+			    	Nous construisons le plus bel outil de suivi de patients pour les ostéopathes qui s'installent !
+			    </p>
+			    <p>Au prgramme dans un futur très proche : </p>
+			    <ul>
+			    	<li>la saisie intuitive et sécurisée des infos des vos patient et de vos anamnèses</li>
+			    	<li>un affichage unique au monde de l'historique de vos patient pour comprendre en un coup d'oeil leur histoire avec vous !</li>
+			    	<li>l'édition de vos factures en un clic</li>
+			    	<li>vos patients, vos données ! on ne blague pas avec ça</li>
+			    	<li>... et on a plein d'autres idées en stock ;)</li>
+			    </ul>
+			    <p class="lead">
+			      <a href="#" class="btn btn-outline-osteolia"><i class="bi bi-hand-thumbs-up me-2"></i>Mais ça m'intéresse (beaucoup)!</a>
+			    </p>
+		    </div>
+	    </div>
+	</main>
+
+  <footer class="footer mt-auto py-3">
+		<div class="container">
+		    <p>
+		    	<a class="text-decoration-none text-osteolia" href="#">CGU</a> | <a class="text-decoration-none text-osteolia" href="#">Vie privée</a> | <a class="text-decoration-none text-osteolia" href="#">A propos...</a></br>
+		    	<span class="text-black-50 text-small">© 2021 Joel Gerbier-Violleau</span> 
+			</p>
+  		</div>
+  </footer>
 </div>
+
 {% endblock %}
