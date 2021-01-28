@@ -1,0 +1,47 @@
+{# % extends 'base.html.twig' % #}
+
+{# % block title %}Hello futur prospect!{% endblock % #}
+
+{# % block body % #}
+
+	  		<div class="col">
+	  			<h5 class="text-osteolia">{{ 'prospect.subscription_form.title' | trans }}</h5>
+	  			<p>{{ 'prospect.subscription_form.intro' | trans }}</p>
+	  			{{ form_start(form, { 'attr': {'class':'yo'} })  }}
+
+  				<div class="row mb-3">
+  					<div class="col-md-6">
+	  					{{ form_label(form.firstName, 'prospect.subscription_form.firstName' | trans, {'attr' : {'class': 'yo'}}) }}
+	  					{{ form_widget(form.firstName) }}
+	  				</div>
+					<div class="col-md-6">
+	  					{{ form_label(form.lastName, 'prospect.subscription_form.lastName' | trans, {'attr' : {'class': 'yo'}}) }}
+	  					{{ form_widget(form.lastName) }}
+  					</div>
+	  			</div>
+  				<div class="row mb-4">
+					<div class="col-md-8 mb-3">
+	  					{{ form_label(form.email, 'prospect.subscription_form.email' | trans, {'attr' : {'class': 'yo'}}) }}
+	  					{{ form_widget(form.email) }}
+  					</div>
+		  			<div class="form-check form-switch">
+						{{ form_widget(form.isOkToBeContacted, {'attr' : {'class' : 'form-check-input', 'data-bs-toggle': 'collapse', 'data-bs-target' : '#moreInfos' }, 'label' : 'prospect.subscription_form.isOkToBeContacted' | trans}) }}
+					</div>
+	  			</div>
+  				<div class="row mb-3 collapse" id="moreInfos">
+  					<p>{{ 'prospect.subscription_form.great_more_infos_please' | trans }}</p>
+					<div class="row mb-3">
+						<div class="col-md-4">
+		  					{{ form_label(form.phoneNumber, 'prospect.subscription_form.phoneNumber' | trans, {'attr' : {'class': 'yo'}}) }}
+		  					{{ form_widget(form.phoneNumber) }}
+		  				</div>
+	  				</div>
+					{{ form_row(form.school, {'attr' : {'class' : 'mb-3'}, 'label' : 'prospect.subscription_form.school' | trans }) }}
+	  				{{ form_row(form.yearsOfPractice, {'attr' : {'class' : 'mb-3'}, 'label' : 'prospect.subscription_form.yearsOfPractice' | trans }) }}
+  				</div>
+  				{{ form_widget(form.submit, {'attr' : {'class' : 'btn btn-osteolia'}, 'label' : 'prospect.subscription_form.submit' | trans }) }}
+
+				{{ form_end(form) }}	  			
+  			</div>
+
+{# % endblock % #}

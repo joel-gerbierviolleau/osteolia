@@ -1,0 +1,7 @@
+prospect: 
+    errors: 
+        empty_firstName: "Vous avez surement un prénom ;)"
+        invalid_yop: "une valeur négative ou plus de 60 ans de pratique ??"
+        phoneNumer_too_short: "C'est un peu court pour un N° de téléphone"
+        phoneNumer_too_long: "C'est un peu long pour un N° de téléphone"
+        

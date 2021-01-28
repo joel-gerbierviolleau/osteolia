@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}See you soon ;*{% endblock %}
+
+{% block body %}
+
+ 	<main class="container-lg">
+	  	<div class="row py-5">
+	  		<div class="col">
+			    <h1 class="text-osteolia">A très bientôt !</h1>
+			    <p class="lead">
+			    	Nous vous ferons signe au fur et à mesure de l'avancée des trvaux :) Promis.
+			    </p>
+
+		    {% for message in app.flashes('notice') %}
+                <div class="flash-notice">
+                    {{ message }}
+                </div>
+            {% endfor %}
+
+            </div>
+        </div>
+    </main>
+
+ {% endblock %}

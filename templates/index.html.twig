@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello world! Meet Osteolia :)!{% endblock %}
+
+{% block body %}
+
+	<main class="container-lg">
+	  	<div class="row py-5">
+	  		<div class="col">
+			    <h1 class="text-osteolia">Bienvenue sur osteolia !</h1>
+			    <p class="lead">
+			    	Nous construisons le plus bel outil de suivi de patients pour les ostéopathes qui s'installent !
+			    </p>
+			    <div class="row">
+			  		<div class="col">
+					    <p>Au prgramme dans un futur très proche : </p>
+					    <ul>
+					    	<li>la saisie intuitive et sécurisée des infos des vos patient et de vos anamnèses</li>
+					    	<li>un affichage unique au monde de l'historique de vos patient pour comprendre en un coup d'oeil leur histoire avec vous !</li>
+					    	<li>l'édition de vos factures en un clic</li>
+					    	<li>vos patients, vos données ! on ne blague pas avec ça</li>
+					    	<li>... et on a plein d'autres idées en stock ;)</li>
+					    </ul>
+					    <p class="lead">
+							<button type="button" class="btn btn-outline-osteolia" data-bs-toggle="collapse" data-bs-target="#collapseExample">
+								Mais ça m'intéresse (beaucoup)!<i class="bi bi-hand-thumbs-up me-2"></i>
+							</button>
+					    </p>
+				   </div>
+				</div>
+			</div>
+		   <div class="col collapse" id="collapseExample">
+			   <div class="card card-body">
+			   		{{ include('prospect/prospect.html.twig') }}
+
+			    	{# { render(controller('App\\Controller\\ProspectController::newProspect')) } #}
+			   		
+			   </div>
+			</div>
+	    </div>
+   </main>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Envoyez les infos !</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+    	{{ render(controller('App\\Controller\\ProspectController::newProspect')) }}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Tenez-moi au courant !</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

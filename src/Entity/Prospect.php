@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ProspectRepository;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -19,33 +20,72 @@ class Prospect
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(
+     *      message = "{{ 'prospect.errors.empty_firstName' | trans }}"
+     * )
      */
     private $firstName;
 
     /**
+     * @Assert\NotBlank
      * @ORM\Column(type="string", length=255)
      */
     private $lastName;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Email(
+     *     message = "{{ 'prospect.errors.invalid_email' | trans }}"
+     * )
      */
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $school;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Assert\Range(
+     *      min = 0,
+     *      max = 60,
+     *      notInRangeMessage = "prospect.errors.invalid_yop"
+     * )
      */
     private $yearsOfPractice;
 
     /**
      * @ORM\Column(type="string", length=15, nullable=true)
+     * @Assert\Length(
+     *      min = 10,
+     *      max = 12,
+     *      minMessage = "prospect.errors.phoneNumber_too_short",
+     *      maxMessage = "prospect.errors.phoneNumber_too_long"
+     * )
      */
     private $phoneNumber;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $creationDate;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isOkToBeContacted;
+
+
+    public function __construct()
+    {
+
+        $this->creationDate = new \DateTime();
+        $this->isOkToBeContacted = false;
+
+    }
+
 
     public function getId(): ?int
     {
@@ -120,6 +160,30 @@ class Prospect
     public function setPhoneNumber(?string $phoneNumber): self
     {
         $this->phoneNumber = $phoneNumber;
+
+        return $this;
+    }
+
+    public function getCreationDate(): ?\DateTimeInterface
+    {
+        return $this->creationDate;
+    }
+
+    public function setCreationDate(\DateTimeInterface $creationDate): self
+    {
+        $this->creationDate = $creationDate;
+
+        return $this;
+    }
+
+    public function getIsOkToBeContacted(): ?bool
+    {
+        return $this->isOkToBeContacted;
+    }
+
+    public function setIsOkToBeContacted(bool $isOkToBeContacted): self
+    {
+        $this->isOkToBeContacted = $isOkToBeContacted;
 
         return $this;
     }
