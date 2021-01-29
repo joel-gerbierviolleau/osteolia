@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'exceptions.other.title' | trans }}{% endblock %}
+
+{% block body %}
+
+	<main class="container-lg">
+	  	<div class="row py-5">
+	  		<div class="col">
+	  			<h5 class="text-osteolia">{{ 'exceptions.other.title_body' | trans }}</h5>
+	  			<p class="py-4">
+	  				{{ 'exceptions.other.content' | trans }}
+	  			</p>
+	  			<p>
+	  				<a href="{{ path('home') }}" class="btn btn-osteolia">{{ 'exceptions.other.back_to_base' | trans }}</a>
+	  			</p>
+            </div>
+        </div>
+    </main>
+
+ {% endblock %}

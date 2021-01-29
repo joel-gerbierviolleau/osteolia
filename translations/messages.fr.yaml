@@ -16,3 +16,25 @@ prospect:
     successfully:
         saved: "Vos coordonnées sont bien notées !"
         saved_and_willing_to_help: 'On vous contacte prochainement pour un petit interview !'
+
+exceptions:
+    404:
+        title: "Heing ??"
+        title_body: "Nous ne trouvons (toujours) pas ce que vous cherchez"
+        content: "La page que vous cherchez n'existe pas (ou pas encore). Si vous pensez qu'il s'agit d'un bug, faites-nous signe."
+        back_to_base: "Ramenez-moi en terrain connu" 
+    403:
+        title: "Halte-là !"
+        title_body: "Vous n'êtes pas autorisé(e) à venir par ici !"
+        content: "Soit vous n'êtes pas connecté(e), soit vous n'avez pas le droit de voir cette page. Si vous pensez qu'il s'agit d'un bug, faites-nous signe."
+        back_to_base: "Ramenez-moi en terrain connu"
+    418: 
+        title: "Oooh a cuppa !"
+        title_body: "Hmmm non, je ne suis pas une théière"
+        content: "Quoi que vous ayez fait pour arriver à ça, et même si c'est plus ou moins toujours l'heure du thé, je suis une plateforme pour osteopathe, pas une théière !"
+        back_to_base: "Ramenez-moi à la maison et un sachet !"        
+    other: 
+        title: "????"
+        title_body: "Quelque chose d'inattendu s'est produit !"
+        content: "Nous enregistrons le souci et allons y jeter un oeil."
+        back_to_base: "Ramenez-moi en terrain connu"         
