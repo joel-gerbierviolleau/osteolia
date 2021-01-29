@@ -1,16 +1,61 @@
+app:
+    name: "Osteolia"
+
+navbarPublic: 
+    features: "Fonctionalités"
+    pricing: "Tarifs"
+    login: "Connexion"
+
+footer: 
+    ToU: "CGU"
+    about: "A propos"
+    privacy: "Vie privée"
+    copyright: "© 2021 Joel Gerbier-Violleau"
+
+public_home:
+    title: "Hello world ! Meet Osteolia !"
+    welcome_title: "Bienvenue sur Osteolia !"
+    welcome_statement: "Nous construisons le plus bel outil de suivi de patients pour les ostéopathes qui s'installent !"
+    whats_to_come: "Au prgramme dans un futur très proche :"
+    comming_soon:
+        -
+            "La saisie intuitive et sécurisée des infos des vos patient et de vos anamnèses"
+        -
+            "Un affichage unique au monde de l'historique de vos patient pour comprendre en un coup d'oeil leur histoire avec vous !""
+        - 
+            "L'édition de vos factures en un clic"
+        -
+            "Vos patients, vos données ! on ne blague pas avec ça - venez avec, repartez avec"
+        -
+            "... et on a plein d'autres idées en stock ;)"
+    i_am_interested: "Mais ça m'intérresse (beaucoup) !"
+
 prospect:
     subscription_form:
         title: "Vous êtes intéressé(e) ?"
         intro: "Excellente nouvelle ! Laissez-nous vos coordonnées pour qu'on vous tienne au courant de l'avancée des travaux !"
         has_errors: "On y est presque ! juste une ou deux erreurs à corriger et c'est bon :)"
-        firstName: 'Votre prénom ?'
-        lastName: 'Votre nom ?'
-        email: 'Un email où on peut vous écrire ?'
-        isOkToBeContacted: "Peut-on vous contacter pour quelques questions pour mieux construire le produit ?"
+        firstName: 
+            label: "Votre prénom ?"
+            placeholder: "Tom"
+        lastName: 
+            label: "Votre nom ?"
+            placeholder: "Doe"
+        email: 
+            label: 'Un email où on peut vous écrire ?'
+            placeholder: "john.doe@some.where"
+        isOkToBeContacted: 
+            label: "Peut-on vous contacter pour quelques questions pour mieux construire le produit ?"
         great_more_infos_please: "Top! On aura besoin de quelques infos complémentaires du coup. C'est facultatif bien entendu mais ça nous aide :)"
-        phoneNumber: 'Un N° de portable ?'
-        school: 'Dans quelle école avez-vous effectué votre formation ?'
-        yearsOfPractice: "Si vous êtes diplomé(e), depuis combien d'années ?"
+        phoneNumber: 
+            label: 'Un N° de portable ?'
+            placeholder: "06 37 13 89 64"
+        school: 
+            label: 'Dans quelle école avez-vous effectué votre formation ?'
+            placeholder: "Collège Osteopathique de Bordeaux"
+        yearsOfPractice: 
+            label: "Si vous êtes diplomé(e), depuis combien d'années ?"
+            placeholder: "2"
         submit: "Hop ! "
         success_message: "Super ! Merci beaucoup et à bientôt :)"
     successfully:

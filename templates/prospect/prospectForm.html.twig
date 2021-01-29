@@ -19,26 +19,26 @@
 
 	  			{{ form_start(form, { 'attr': {'class':'yo'} })  }}
 
-  				<div class="row mb-3">
-  					<div class="col-md-6">
-	  					{{ form_label(form.firstName, 'prospect.subscription_form.firstName' | trans, {'attr' : {'class': 'yo'}}) }}
-	  					{{ form_widget(form.firstName) }}
+  				<div class="row">
+  					<div class="col-md-6 mb-3">
+	  					{{ form_label(form.firstName, 'prospect.subscription_form.firstName.label' | trans) }}
+	  					{{ form_widget(form.firstName, {'attr' : {'placeholder' : 'prospect.subscription_form.firstName.placeholder' | trans }}) }}
 	  				</div>
-					<div class="col-md-6">
-	  					{{ form_label(form.lastName, 'prospect.subscription_form.lastName' | trans, {'attr' : {'class': 'yo'}}) }}
-	  					{{ form_widget(form.lastName) }}
+					<div class="col-md-6 mb-3">
+	  					{{ form_label(form.lastName, 'prospect.subscription_form.lastName.label' | trans) }}
+	  					{{ form_widget(form.lastName, {'attr' : {'placeholder' : 'prospect.subscription_form.lastName.placeholder' | trans }}) }}
   					</div>
 	  			</div>
   				<div class="row mb-4">
 					<div class="col-md-8 mb-3">
-	  					{{ form_label(form.email, 'prospect.subscription_form.email' | trans, {'attr' : {'class': 'yo'}}) }}
-	  					{{ form_widget(form.email) }}
+	  					{{ form_label(form.email, 'prospect.subscription_form.email.label' | trans) }}
+	  					{{ form_widget(form.email, {'attr' : {'placeholder' : 'prospect.subscription_form.email.placeholder' | trans }}) }}
   					</div>
 		  			<div class="form-check form-switch">
 		  			{% if form_errors(form.phoneNumber) or form_errors(form.yearsOfPractice) or form_errors(form.school) %}	
-						{{ form_widget(form.isOkToBeContacted, {'attr' : {'class' : 'form-check-input', 'data-bs-toggle': 'collapse', 'data-bs-target' : '#moreInfos', 'checked' : 'checked'}, 'label' : 		'prospect.subscription_form.isOkToBeContacted' | trans, 'data' : true}) }}
+						{{ form_widget(form.isOkToBeContacted, {'attr' : {'class' : 'form-check-input', 'data-bs-toggle': 'collapse', 'data-bs-target' : '#moreInfos', 'checked' : 'checked'}, 'label' : 'prospect.subscription_form.isOkToBeContacted.label' | trans, 'data' : true}) }}
 					{% else %}
-						{{ form_widget(form.isOkToBeContacted, {'attr' : {'class' : 'form-check-input', 'data-bs-toggle': 'collapse', 'data-bs-target' : '#moreInfos' }, 'label' : 		'prospect.subscription_form.isOkToBeContacted' | trans}) }}
+						{{ form_widget(form.isOkToBeContacted, {'attr' : {'class' : 'form-check-input', 'data-bs-toggle': 'collapse', 'data-bs-target' : '#moreInfos' }, 'label' : 		'prospect.subscription_form.isOkToBeContacted.label' | trans}) }}
 					{% endif %}
 					</div>
 	  			</div>
@@ -46,14 +46,22 @@
 				{% if form.vars.valid %}
   					<p>{{ 'prospect.subscription_form.great_more_infos_please' | trans }}</p>
   				{% endif %}
-					<div class="row mb-3">
-						<div class="col-md-4">
-		  					{{ form_label(form.phoneNumber, 'prospect.subscription_form.phoneNumber' | trans, {'attr' : {'class': 'yo'}}) }}
-		  					{{ form_widget(form.phoneNumber) }}
+					<div class="row">
+						<div class="col-md-4 mb-3">
+		  					{{ form_label(form.phoneNumber, 'prospect.subscription_form.phoneNumber.label' | trans) }}
+		  					{{ form_widget(form.phoneNumber, {'attr' : {'placeholder' : 'prospect.subscription_form.phoneNumber.placeholder' | trans }}) }}
 		  				</div>
 	  				</div>
-					{{ form_row(form.school, {'attr' : {'class' : 'mb-3'}, 'label' : 'prospect.subscription_form.school' | trans }) }}
-	  				{{ form_row(form.yearsOfPractice, {'attr' : {'class' : 'mb-3'}, 'label' : 'prospect.subscription_form.yearsOfPractice' | trans }) }}
+					<div class="row">
+						<div class="col-md-6 mb-3">
+		  					{{ form_label(form.school, 'prospect.subscription_form.school.label' | trans) }}
+		  					{{ form_widget(form.school, {'attr' : {'placeholder' : 'prospect.subscription_form.school.placeholder' | trans }}) }}
+			  			</div>
+						<div class="col-md-6 mb-3">
+		  					{{ form_label(form.yearsOfPractice, 'prospect.subscription_form.yearsOfPractice.label' | trans) }}
+		  					{{ form_widget(form.yearsOfPractice, {'attr' : {'placeholder' : 'prospect.subscription_form.yearsOfPractice.placeholder' | trans }}) }}
+			  			</div>
+			  		</div>
   				</div>
   				{{ form_widget(form.submit, {'attr' : {'class' : 'btn btn-osteolia'}, 'label' : 'prospect.subscription_form.submit' | trans }) }}
 
