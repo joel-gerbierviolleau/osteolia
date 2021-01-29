@@ -6,7 +6,17 @@
 
 	  		<div class="col">
 	  			<h5 class="text-osteolia">{{ 'prospect.subscription_form.title' | trans }}</h5>
-	  			<p>{{ 'prospect.subscription_form.intro' | trans }}</p>
+
+	  			{% if form.vars.valid %}
+		  			<p>
+		  				{{ 'prospect.subscription_form.intro' | trans }}
+					</p>
+	  				{% else %}
+		  			<p class="alert alert-warning" role="alert">
+						{{ 'prospect.subscription_form.has_errors' | trans }}
+					</p>
+					{% endif %}
+
 	  			{{ form_start(form, { 'attr': {'class':'yo'} })  }}
 
   				<div class="row mb-3">
@@ -25,11 +35,17 @@
 	  					{{ form_widget(form.email) }}
   					</div>
 		  			<div class="form-check form-switch">
-						{{ form_widget(form.isOkToBeContacted, {'attr' : {'class' : 'form-check-input', 'data-bs-toggle': 'collapse', 'data-bs-target' : '#moreInfos' }, 'label' : 'prospect.subscription_form.isOkToBeContacted' | trans}) }}
+		  			{% if form_errors(form.phoneNumber) or form_errors(form.yearsOfPractice) or form_errors(form.school) %}	
+						{{ form_widget(form.isOkToBeContacted, {'attr' : {'class' : 'form-check-input', 'data-bs-toggle': 'collapse', 'data-bs-target' : '#moreInfos', 'checked' : 'checked'}, 'label' : 		'prospect.subscription_form.isOkToBeContacted' | trans, 'data' : true}) }}
+					{% else %}
+						{{ form_widget(form.isOkToBeContacted, {'attr' : {'class' : 'form-check-input', 'data-bs-toggle': 'collapse', 'data-bs-target' : '#moreInfos' }, 'label' : 		'prospect.subscription_form.isOkToBeContacted' | trans}) }}
+					{% endif %}
 					</div>
 	  			</div>
-  				<div class="row mb-3 collapse" id="moreInfos">
+  				<div class="row mb-3 collapse {% if form.isOkToBeContacted.vars.data == true or form_errors(form.phoneNumber) or form_errors(form.yearsOfPractice) or form_errors(form.school) %} show {% endif %}" id="moreInfos">
+				{% if form.vars.valid %}
   					<p>{{ 'prospect.subscription_form.great_more_infos_please' | trans }}</p>
+  				{% endif %}
 					<div class="row mb-3">
 						<div class="col-md-4">
 		  					{{ form_label(form.phoneNumber, 'prospect.subscription_form.phoneNumber' | trans, {'attr' : {'class': 'yo'}}) }}

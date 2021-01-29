@@ -48,14 +48,5 @@ class HomeController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/see-you-soon", name="/see-you-soon")
-     */
- 	public function seeYouSoon(): Response
- 	{
- 		return $this->render('prospect/seeYouSoon.html.twig', []);
-
- 	}
-
 
 }

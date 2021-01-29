@@ -2,6 +2,7 @@ prospect:
     subscription_form:
         title: "Vous êtes intéressé(e) ?"
         intro: "Excellente nouvelle ! Laissez-nous vos coordonnées pour qu'on vous tienne au courant de l'avancée des travaux !"
+        has_errors: "On y est presque ! juste une ou deux erreurs à corriger et c'est bon :)"
         firstName: 'Votre prénom ?'
         lastName: 'Votre nom ?'
         email: 'Un email où on peut vous écrire ?'

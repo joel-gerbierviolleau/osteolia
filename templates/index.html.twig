@@ -22,42 +22,23 @@
 					    	<li>... et on a plein d'autres idées en stock ;)</li>
 					    </ul>
 					    <p class="lead">
-							<button type="button" class="btn btn-outline-osteolia" data-bs-toggle="collapse" data-bs-target="#collapseExample">
+							<button type="button" class="btn btn-outline-osteolia d-none d-lg-block" data-bs-toggle="collapse" data-bs-target="#prospectForm">
 								Mais ça m'intéresse (beaucoup)!<i class="bi bi-hand-thumbs-up me-2"></i>
 							</button>
+							<a href="{{ path('/i-am-interested') }}" type="button" class="btn btn-outline-osteolia d-lg-none">
+								Mais ça m'intéresse (beaucoup)!<i class="bi bi-hand-thumbs-up me-2"></i>
+							</a>
 					    </p>
 				   </div>
 				</div>
 			</div>
-		   <div class="col collapse" id="collapseExample">
+		   <div class="col {# % if form.vars.valid % #} collapse {# % endif % #}" id="prospectForm">
 			   <div class="card card-body">
-			   		{{ include('prospect/prospect.html.twig') }}
-
-			    	{# { render(controller('App\\Controller\\ProspectController::newProspect')) } #}
-			   		
+			   		{{ include('prospect/prospectForm.html.twig') }}
+			   		{# { render(controller('App\\Controller\\ProspectController::newProspect')) } #}	
 			   </div>
 			</div>
 	    </div>
    </main>
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Envoyez les infos !</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-    	{{ render(controller('App\\Controller\\ProspectController::newProspect')) }}
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Tenez-moi au courant !</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 
 {% endblock %}
