@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'about.page_title' | trans }}{% endblock %}
+
+{% block body %}
+
+ 	<main class="container-lg">
+	  	<div class="row py-5">
+		    <h1 class="text-osteolia">{{ 'about.content.title' | trans }}</h1>
+		    <p class="lead">
+		    	{{ 'about.content.lead' | trans }}
+		    </p>
+
+		    <h4 class="text-light-osteolia mt-5">{{ 'about.content.the_story_so_far.title' | trans }}</h4>
+		    <p>{{ 'about.content.the_story_so_far.content' | trans }}</p>
+
+		    <h4 class="text-light-osteolia mt-5">{{ 'about.content.legal.title' | trans }}</h4>
+		    <p>{{ 'about.content.legal.content' | trans }}</p>
+		    <p>{{ 'about.content.legal.hosting' | trans }}</p>
+
+        </div>
+    </main>
+
+ {% endblock %}

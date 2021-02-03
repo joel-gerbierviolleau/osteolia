@@ -10,7 +10,7 @@ footer:
     ToU: "CGU"
     about: "A propos"
     privacy: "Vie privée"
-    copyright: "© 2021 Joel Gerbier-Violleau"
+    copyright: "© 2021 Osteolia"
 
 public_home:
     title: "Hello world ! Meet Osteolia !"
@@ -34,7 +34,6 @@ public_home:
         Regardez notre page dédiée au "
     cookies_notification_privacy_link: "respect de votre vie privée"
     cookies_notification_2:  " pour en savoir plus."
-
 
 prospect:
     subscription_form:
@@ -130,5 +129,23 @@ privacy:
                     "La CNIL et l'L'UE vous donnent des droits sur vos données. Vous avez un droit de consultation, de rectification ou de suppression des données vous concernant.
                     Contactez-nous pour exercer ce droit."
 
-
+about: 
+        page_title: "A propos d'Osteolia"
+        content: 
+            title: "A propos..."
+            lead: "Un beau roman, une belle histoire..."
+            the_story_so_far:
+                title: "Du chômage et de l'obtention d'un dimplôme...."
+                content: 
+                    "Osteolia est né d'une conjonction de deux phénomènes n'ayant rien à voir ! La soeur du créateur de cette belle 
+                    plateforme allait avoir besoin d'une plateforme comme celle-ci une fois son diplôme en poche et le créateur en question 
+                    s'est retrouvé au chômage... L'occasion était belle pour lui de challenger son propre métier de Product Manager tout en 
+                    en profitant pour développer et maintenir ses compétences. Au fil des mois, des MOOCs et de la pratique est née cette plateforme. 
+                    Enormément de choses restent à faire (sachant que je suis seul pour développer ça !). Mais on prend le bon chemin et c'est très 
+                    riche !"
+            legal:
+                title: "Mentions légales"
+                content: "Responsable de publication : Joel Gerbier-Violleau"
+                hosting: "Ce site est hébergé par OVH SAS 2 rue Kellermann - 59100 Roubaix - France"
+ 
 
