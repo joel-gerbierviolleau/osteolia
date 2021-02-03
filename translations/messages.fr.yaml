@@ -29,6 +29,12 @@ public_home:
         -
             "... et on a plein d'autres idées en stock ;)"
     i_am_interested: "Mais ça m'intérresse (beaucoup) !"
+    cookies_notification_1: 
+        "Pour analyser vos visites et améliorer votre expérience, nous utilisons des cookies. 
+        Regardez notre page dédiée au "
+    cookies_notification_privacy_link: "respect de votre vie privée"
+    cookies_notification_2:  " pour en savoir plus."
+
 
 prospect:
     subscription_form:
@@ -83,3 +89,46 @@ exceptions:
         title_body: "Quelque chose d'inattendu s'est produit !"
         content: "Nous enregistrons le souci et allons y jeter un oeil."
         back_to_base: "Ramenez-moi en terrain connu"         
+
+privacy: 
+        page_title: "Vie privée - Osteolia"
+        content: 
+            title: "Votre vie privée l'est."
+            lead: "Et c'est (très) important !"
+            general_principles:
+                title: "Quelques principes généraux..."
+                content: 
+                    "Votre vie privée est très importante pour nous. 
+                    Nous faisons attention à la respecter dans le cadre de la loi (et au-delà). 
+                    Nous n'utilisons pas de fonctionnalités de partage social, ça n'a pas beaucoup de sens pour une plate-forme
+                    professionnelle et ainsi votre activité ici ne risque pas de se retrouver sur les réseaux sociaux.
+                    Dans le même ordre d'idées, nous ne faisons pas appel à Google Analytics pour héberger l'analyse du traffic et nous ne voulons pas utiliser 
+                    vos données à des fins autres que celles de la plateforme ou peut-être un jour de recherche. Dans ce cas, vous seriez consulté(e) bien entendu."
+            cookies:
+                title: "A propos des cookies..."
+                content: 
+                    "Nous utilisons des cookies à des fins d'analyse de traffic (lire plus bas) et  pour gérer certaines
+                     fonctionnalités du site. Rien d'autre. Pas de tracking publicitaire ni de revente de données."
+            traffic_analysis:
+                title: "A propos de votre navigation..."
+                content: 
+                    "Nous ne le cachons pas : nous faisons de l'analyse de traffic. Cela sert à améliorer le site et à voir 
+                    comment celui-ci répond à vos attentes. Pour cela, nous utilisons une plateforme libre appellée Matomo, indépendante 
+                    des GAFAM. Celle-ci est hébergée et gérée par Osteolia."
+                do_not_track:
+                    title: "Quid du Do Not Track/Ne pas suivre ?"
+                    content: "Nous le supportons : si vous avez activé cette option dans les préférences de votre navigateur (vous devriez le faire !), nous respecterons votre choix."
+            data_retention:
+                title: "Rétention et usage des données collectées..."
+                content: 
+                    "Nous collectons des données d'usage (pour l'analyse de traffic par ex.) et aussi des données que vous saisissez 
+                    manuellement sur la plateforme. Nous utilisons ces données pour les fonctionnalités de la plateforme.
+                    Les données qui ne sont pas légitimes et/ou nécessaires au bon fonctionnement du site pourront être conservées pendant 2 ans au maximum."
+            exercise_rights: 
+                title: "Exercez vos droits..."
+                content: 
+                    "La CNIL et l'L'UE vous donnent des droits sur vos données. Vous avez un droit de consultation, de rectification ou de suppression des données vous concernant.
+                    Contactez-nous pour exercer ce droit."
+
+
+

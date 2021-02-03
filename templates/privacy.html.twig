@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'privacy.page_title' | trans }}{% endblock %}
+
+{% block body %}
+
+ 	<main class="container-lg">
+	  	<div class="row py-5">
+		    <h1 class="text-osteolia">{{ 'privacy.content.title' | trans }}</h1>
+		    <p class="lead">
+		    	{{ 'privacy.content.lead' | trans }}
+		    </p>
+
+		    <h4 class="text-light-osteolia mt-5">{{ 'privacy.content.general_principles.title' | trans }}</h4>
+		    <p>{{ 'privacy.content.general_principles.content' | trans }}</p>
+
+		    {# display for large screens #}
+	  		<div class="col d-none d-md-block">
+			    <h4 class="text-light-osteolia">{{ 'privacy.content.data_retention.title' | trans }}</h4>
+			    <p>{{ 'privacy.content.data_retention.content' | trans }}</p>
+
+			    <h4 class="text-light-osteolia">{{ 'privacy.content.traffic_analysis.title' | trans }}</h4>
+			    <p>{{ 'privacy.content.traffic_analysis.content' | trans }}</p>
+				<div class="alert alert-info m-3" role="alert">
+				    <h6 class="alert-heading">{{ 'privacy.content.traffic_analysis.do_not_track.title' | trans }}</h6>
+				    {{ 'privacy.content.traffic_analysis.do_not_track.content' | trans }}
+			    </div>
+			    <h4 class="text-light-osteolia">{{ 'privacy.content.exercise_rights.title' | trans }}</h4>
+			    <p class="mb-5">{{ 'privacy.content.exercise_rights.content' | trans }}</p>
+			</div>
+
+		    {# display for smaller screens / mobiles #}
+			<div class="col d-md-none">
+				<div class="accordion " id="accordionPrivacy">
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="headingCookies">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCookies" aria-expanded="true" aria-controls="collapseCookies">
+							{{ 'privacy.content.cookies.title' | trans }}
+							</button>
+						</h2>
+						<div id="collapseCookies" class="accordion-collapse collapse" aria-labelledby="headingCookies" data-bs-parent="#accordionPrivacy">
+							<div class="accordion-body">
+							{{ 'privacy.content.cookies.content' | trans }}
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="headingTrafficAnalysis">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTrafficAnalysis" aria-expanded="false" aria-controls="collapseTrafficAnalysis">
+							{{ 'privacy.content.traffic_analysis.title' | trans }}
+							</button>
+						</h2>
+						<div id="collapseTrafficAnalysis" class="accordion-collapse collapse" aria-labelledby="headingTrafficAnalysis" data-bs-parent="#accordionPrivacy">
+							<div class="accordion-body">
+								<p>{{ 'privacy.content.traffic_analysis.content' | trans }}</p>
+								<div class="alert alert-info m-3" role="alert">
+									<h6 class="alert-heading">{{ 'privacy.content.traffic_analysis.do_not_track.title' | trans }}</h6>
+									{{ 'privacy.content.traffic_analysis.do_not_track.content' | trans }}
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="headingDataRetention">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDataRretention" aria-expanded="true" aria-controls="collapseDataRretention">
+							{{ 'privacy.content.data_retention.title' | trans }}
+							</button>
+						</h2>
+						<div id="collapseDataRretention" class="accordion-collapse collapse" aria-labelledby="headingDataRetention" data-bs-parent="#accordionPrivacy">
+							<div class="accordion-body">
+							{{ 'privacy.content.data_retention.content' | trans }}
+							</div>
+						</div>
+					</div>
+						<div class="accordion-item">
+							<h2 class="accordion-header" id="headingExerceRights">
+								<button class="accordion-button collapsed" tRpe="button" data-bs-toggle="collapse" data-bs-target="#collapseExerceRights" aria-expanded="false" aria-controls="collapseExerceRights">
+								{{ 'privacy.content.exercise_rights.title' | trans }}
+								</button>
+							</h2>
+						<div id="collapseExerceRights" class="accordion-collapse collapse" aria-labelledby="headingExerceRights" data-bs-parent="#accordionPrivacy">
+							<div class="accordion-body">
+							{{ 'privacy.content.exercise_rights.content' | trans }}
+							</div>
+						</div>
+					</div>
+				</div>
+            </div>
+        </div>
+    </main>
+
+ {% endblock %}

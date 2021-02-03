@@ -48,5 +48,15 @@ class HomeController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/privacy", name="privacy")
+     */
+    public function privacy(Request $request): Response
+    {
+
+        return $this->render('privacy.html.twig');
+
+    }
+
 
 }

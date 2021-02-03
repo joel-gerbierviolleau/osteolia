@@ -5,6 +5,10 @@
 {% block body %}
 
 	<main class="container-lg">
+		<div class="alert alert-warning alert-dismissible fade show mt-3 hidden" role="alert" id="cookieAlert">
+		  {{ 'public_home.cookies_notification_1' | trans }}<a href="{{ path('privacy') }}">{{ 'public_home.cookies_notification_privacy_link' | trans }}</a>{{ 'public_home.cookies_notification_2' | trans }}
+		  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		</div>
 	  	<div class="row py-5">
 	  		<div class="col">
 			    <h1 class="text-osteolia">{{ 'public_home.welcome_title' | trans }}</h1>
@@ -37,3 +41,4 @@
    </main>
 
 {% endblock %}
+
