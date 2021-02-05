@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'login_form.page_title' | trans }}{% endblock %}
+
+{% block body %}
+    <main class="container-lg">
+        <div class="row py-5">
+            <div class="col-md-4 offset-md-4">
+                    {% if app.user %}
+                        <div class="mb-3">
+                            <div class="alert alert-warning text-center">
+                                <p>{{ 'login_form.already_logged_in' | trans }}{{ app.user.username }}</p>
+                                <p><a href="{{ path('app_logout') }}" class="btn btn-warning">{{ 'login_form.logout' | trans }}</a></p>
+                                <p>ou</p>
+                                <p><a href="{{ path('home') }}" class="btn btn-warning">{{ 'login_form.back_to_home' | trans }}</a></p>
+                            </div>    
+                        </div>
+                    {% else %}
+                <form method="post">
+
+                    {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+
+                   <h3 class="h3 mb-3 text-center">{{ 'login_form.title' | trans }}</h3>
+                    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control mb-3 text-center" placeholder="{{ 'login_form.email_placeholder' | trans }}" required autofocus>
+                    <input type="password" name="password" id="inputPassword" class="form-control mb-3 text-center" placeholder="{{ 'login_form.password_placeholder' | trans }}" required>
+                    <input type="hidden" name="_csrf_token"
+                           value="{{ csrf_token('authenticate') }}"
+                    >
+                    <div class="row">
+                        <div class="d-flex mb-3">
+                            <label class="mx-auto">
+                                <input type="checkbox" name="_remember_me"> {{ 'login_form.remember_me' | trans }}
+                            </label>
+                        </div>
+                        <div class="d-flex">
+                            <button class="btn btn-osteolia mx-auto" type="submit">{{ 'login_form.submit' | trans }}</button>
+                        </div>
+                    </div>
+                </form>
+            {% endif %}
+            </div>
+        </div>
+    </main>
+{% endblock %}

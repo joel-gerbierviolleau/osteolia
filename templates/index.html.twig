@@ -10,6 +10,7 @@
 		  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 		</div>
 	  	<div class="row py-5">
+	  		{% if not is_granted('IS_AUTHENTICATED_FULLY') %}
 	  		<div class="col">
 			    <h1 class="text-osteolia">{{ 'public_home.welcome_title' | trans }}</h1>
 			    <p class="lead">{{ 'public_home.welcome_statement' | trans }}
@@ -31,12 +32,38 @@
 				   </div>
 				</div>
 			</div>
-		   <div class="col {# % if form.vars.valid % #} collapse {# % endif % #}" id="prospectForm">
+		    <div class="col {# % if form.vars.valid % #} collapse {# % endif % #}" id="prospectForm">
 			   <div class="card card-body">
 			   		{{ include('prospect/prospectForm.html.twig') }}
 			   		{# { render(controller('App\\Controller\\ProspectController::newProspect')) } #}	
 			   </div>
 			</div>
+			{% else %}
+	            <div class="col">
+					<h3 class="text-osteolia">{% if date("Europe/Paris")|date('H', "Europe/Paris") > 18 or date("Europe/Paris")|date('H', "Europe/Paris") < 4 %}{{ 'home.good_evening' | trans }}{% else %}{{ 'home.good_day' | trans }}{% endif %}{{ app.user.firstName }}</h3>
+				    <p class="lead">{{ 'home.current_time_is' | trans }}{{ date()|date('H:m', "Europe/Paris") }}
+	            </div>
+
+	            {% if is_granted('ROLE_ADMIN') %}
+	     			<div class="row">
+	     				<p>{{ 'home.admin.registered_prospects'| trans }}</p>
+	     			</div>
+	            {% endif %}
+
+	            {% if is_granted('ROLE_USER') and not is_granted('ROLE_ADMIN') %}
+	     			<div class="row mb-3">
+						<button class="btn btn-osteolia btn-lg"><i class="bi bi-person-plus me-2"></i>{{ 'home.osteo.add_patient' | trans }}</button>
+	     			</div>
+	     			<div class="row">
+						<form class="d-flex">
+							<input class="form-control me-2" type="search" placeholder="{{ 'home.osteo.search_patient'| trans }}" aria-label="{{ 'home.osteo.search_patient'| trans }}">
+							<button class="btn btn-outline-osteolia" type="submit">{{ 'home.osteo.search'| trans }}</button>
+						</form>
+	     			</div>
+
+	            {% endif %}
+
+	         {% endif %}
 	    </div>
    </main>
 

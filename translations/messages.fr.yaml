@@ -1,10 +1,27 @@
 app:
     name: "Osteolia"
 
-navbarPublic: 
-    features: "Fonctionalités"
-    pricing: "Tarifs"
-    login: "Connexion"
+navbar: 
+    public:
+        features: "Fonctionalités"
+        pricing: "Tarifs"
+        login: "Connexion"
+    admin:
+        prospects: "Prospects"
+        users: 
+            menu_title: "Utilisateurs"
+            add: "Créer un utilisateur"
+            manage: "Gestion des utilisateurs"
+            dashboard: "Vue d'ensemble"
+    app: 
+        patients: "Mes patients"
+        feedback: "Feedback"
+        user:
+            menu_title: "Mon compte"
+            profile: "Mon profil"
+            settings: "Paramtètres"
+
+    logout: "Déconnexion"
 
 footer: 
     ToU: "CGU"
@@ -34,6 +51,17 @@ public_home:
         Regardez notre page dédiée au "
     cookies_notification_privacy_link: "respect de votre vie privée"
     cookies_notification_2:  " pour en savoir plus."
+
+home:
+    good_day: "Bonjour "
+    good_evening: "Bonsoir "
+    current_time_is: "Il est actuellement "
+    admin:
+        registered_prospects: "Nous avons actuellement XX prospects enregistrés !"
+    osteo:
+        add_patient: "Créez un nouveau patient"
+        search_patient: "Saisissez le nom d'un de vos patients..."
+        search: "Go !"
 
 prospect:
     subscription_form:
@@ -148,4 +176,15 @@ about:
                 content: "Responsable de publication : Joel Gerbier-Violleau"
                 hosting: "Ce site est hébergé par OVH SAS 2 rue Kellermann - 59100 Roubaix - France"
  
+login_form:
+    page_title: "Me connecter à Osteolia"
+    title: "Je m'identifie"
+    email_placeholder: "Mon adresse email ici..."
+    password_placeholder: "...et mon mot de passse là."
+    submit: "Authentifiez-moi !"
+    remember_me: "Souveznez-vous de moi"
+    already_logged_in: "Mmmm il semble que vous soyez déjà authentifié en tant que "
+    logout: "Déconnectez-vous si nécessaire."
+    back_to_home: "retournez à l'accueil."
+
 

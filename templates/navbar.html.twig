@@ -1,0 +1,80 @@
+        {% block navbar %}
+        {# navbar toggles at sm breakpoint #}
+        <header class="shadow">
+            <div class="navbar navbar-expand-sm navbar-light sticky-top bd-navbar bg-osteolia">
+                 <nav class="container-lg d-flex">
+                    <a class="navbar-brand text-light me-auto" href="{{ path('home') }}">{{ 'app.name' | trans }}</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    {# ------------- unlogged NAVBAR  --------------#}
+                    {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-sm-0">
+                            <li class="nav-item">
+                                <a class="nav-link text-light" aria-current="page" href="#">{{ 'navbar.public.features' | trans }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light">{{ 'navbar.public.pricing' | trans }}</a>           
+                            </li>
+                            <li class="nav-item ms-3">
+                                <a href="{{ path('app_login') }}" class="btn btn-outline-light">{{ 'navbar.public.login' | trans }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    {% endif %}
+                    {# --------------------------------------------- #}
+
+                    {# ------------- Admin NAVBAR  --------------#}
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div class="navbar-nav ms-auto mb-2 mb-sm-0">
+                            <div class="nav-item ">
+                                <a class="nav-link text-light" aria-current="page" href="#"><i class="bi bi-people me-2"></i>{{ 'navbar.admin.prospects' | trans }}</a>
+                            </div>
+                            <div class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-people-fill me-2"></i>
+                                {{ 'navbar.admin.users.menu_title' | trans }}
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#">{{ 'navbar.admin.users.add' | trans }}</a></li>
+                                    <li><a class="dropdown-item" href="#">{{ 'navbar.admin.users.manage' | trans }}<a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#">{{ 'navbar.admin.users.dashboard' | trans }}</a></li>
+                                </ul>
+                            </div>
+                            <div class="nav-item ms-2">
+                                <a href="{{ path('app_logout') }}" class="btn btn-outline-light"><i class="bi  bi-box-arrow-left me-3"></i>{{ 'navbar.logout' | trans }}</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {# --------------------------------------------- #}
+
+                    {# ------------- User NAVBAR  --------------#}
+                    {% if is_granted('ROLE_USER') and not is_granted('ROLE_ADMIN') %}
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div class="navbar-nav ms-auto mb-2 mb-sm-0">
+                            <div class="nav-item ">
+                                <a class="nav-link text-light" aria-current="page" href="#"><i class="bi bi-people me-2"></i>{{ 'navbar.app.patients' | trans }}</a>
+                            </div>
+                            <div class="nav-item dropdown me-auto">
+                                <a class="nav-link dropdown-toggle text-light me-3" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle me-2"></i>
+                                {{ 'navbar.app.user.menu_title' | trans }}
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#"><i class="bi  bi-person-fill me-2"></i>{{ 'navbar.app.user.profile' | trans }}</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="bi  bi-gear-wide-connected me-2"></i>{{ 'navbar.app.user.settings' | trans }}<a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="{{ path('app_logout') }}"><i class="bi  bi-box-arrow-left me-2"></i>{{ 'navbar.logout' | trans }}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {# --------------------------------------------- #}
+                 </nav>
+            </div>
+         </header>
+         {% endblock %}
