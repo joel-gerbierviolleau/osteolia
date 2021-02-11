@@ -22,7 +22,7 @@
                     <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
                     {% endif %}
 
-                   <h3 class="h3 mb-3 text-center">{{ 'login_form.title' | trans }}</h3>
+                   <h4 class="h3 mb-3 text-center text-osteolia">{{ 'login_form.title' | trans }}</h4>
                     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control mb-3 text-center" placeholder="{{ 'login_form.email_placeholder' | trans }}" required autofocus>
                     <input type="password" name="password" id="inputPassword" class="form-control mb-3 text-center" placeholder="{{ 'login_form.password_placeholder' | trans }}" required>
                     <input type="hidden" name="_csrf_token"

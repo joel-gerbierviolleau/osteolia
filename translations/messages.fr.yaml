@@ -57,7 +57,7 @@ home:
     good_evening: "Bonsoir "
     current_time_is: "Il est actuellement "
     admin:
-        registered_prospects: "Nous avons actuellement XX prospects enregistrés !"
+        registered_prospects: "Nous avons actuellement %total_prospects% prospects enregistrés !"
     osteo:
         add_patient: "Créez un nouveau patient"
         search_patient: "Saisissez le nom d'un de vos patients..."
@@ -94,6 +94,32 @@ prospect:
     successfully:
         saved: "Vos coordonnées sont bien notées !"
         saved_and_willing_to_help: 'On vous contacte prochainement pour un petit interview !'
+        edited: "Le Prospect a bien été mis à jour !"
+        soft_deleted: "Le prospect a bien été supprimé (logiquement)."
+        hard_deleted: "Le prospect a bien été définitivement effacé de la abse de données."
+    admin: 
+        properties: 
+            fullName: "NOM Prénom"
+            email: "E-mail"
+            isOkToBeContacted: "Contactable"
+            phoneNumber: "N° de tél"
+            school: "Ecole"
+            yearsOfPractice: "YoP" 
+            created_on: "Créé le"
+        action: 
+            actions: "Actions"
+            edit: "Mettre à jour"
+            soft_delete: "Effacer (logiquement)"       
+            hard_delete: "Supprimer définitivement"
+            back: "Retour à la liste"
+        all_prospects:
+            page_title: "Admin | tous prospects"
+            title: "Tous nos prospects"
+            summary: "Actuellement, nous avons donc %nb_prospects% prospects."
+        edit: 
+            page.title: "Admin | MaJ prospect"
+            title: "Mise à jour d'un prospect"
+            creation_date: "Créé le %creation_date%"
 
 exceptions:
     404:
@@ -183,8 +209,10 @@ login_form:
     password_placeholder: "...et mon mot de passse là."
     submit: "Authentifiez-moi !"
     remember_me: "Souveznez-vous de moi"
-    already_logged_in: "Mmmm il semble que vous soyez déjà authentifié en tant que "
+    already_logged_in: "Mmmm il semble que vous soyez déjà authentifié(e) en tant que "
     logout: "Déconnectez-vous si nécessaire."
     back_to_home: "retournez à l'accueil."
+    logged_out: "Vous avez bien été déconnecté(e). A bientôt :)"
+    email_not_found: "Votre email nous est inconnu... une erreur en le saisissant peut être ?"
 
 

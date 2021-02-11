@@ -41,12 +41,12 @@
 			{% else %}
 	            <div class="col">
 					<h3 class="text-osteolia">{% if date("Europe/Paris")|date('H', "Europe/Paris") > 18 or date("Europe/Paris")|date('H', "Europe/Paris") < 4 %}{{ 'home.good_evening' | trans }}{% else %}{{ 'home.good_day' | trans }}{% endif %}{{ app.user.firstName }}</h3>
-				    <p class="lead">{{ 'home.current_time_is' | trans }}{{ date()|date('H:m', "Europe/Paris") }}
+				    <p class="lead">{{ 'home.current_time_is' | trans }}{{ date()|date('h:i', "Europe/Paris") }}
 	            </div>
 
 	            {% if is_granted('ROLE_ADMIN') %}
 	     			<div class="row">
-	     				<p>{{ 'home.admin.registered_prospects'| trans }}</p>
+	     				<p>{{ 'home.admin.registered_prospects'| trans( {'%total_prospects%' : allProspects|length} ) }}</p>
 	     			</div>
 	            {% endif %}
 

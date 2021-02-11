@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4d468c042a7f9a185b7fecd394e3c5b5",
+    "content-hash": "ebdbe681a7a1678b9303d8e64f61006b",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -5909,16 +5909,16 @@
         },
         {
             "name": "symfony/security-csrf",
-            "version": "v5.2.1",
+            "version": "v5.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security-csrf.git",
-                "reference": "fc91cd67b6fcbeae3e5aff854c722fa05b5d133b"
+                "reference": "e22ef49d5d3773014942f3dfe301b168a4a833dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-csrf/zipball/fc91cd67b6fcbeae3e5aff854c722fa05b5d133b",
-                "reference": "fc91cd67b6fcbeae3e5aff854c722fa05b5d133b",
+                "url": "https://api.github.com/repos/symfony/security-csrf/zipball/e22ef49d5d3773014942f3dfe301b168a4a833dc",
+                "reference": "e22ef49d5d3773014942f3dfe301b168a4a833dc",
                 "shasum": ""
             },
             "require": {
@@ -5960,7 +5960,7 @@
             "description": "Symfony Security Component - CSRF Library",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/security-csrf/tree/v5.2.1"
+                "source": "https://github.com/symfony/security-csrf/tree/v5.2.3"
             },
             "funding": [
                 {
@@ -5976,7 +5976,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-12-08T17:02:38+00:00"
+            "time": "2021-01-27T10:01:46+00:00"
         },
         {
             "name": "symfony/security-guard",

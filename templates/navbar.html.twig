@@ -11,17 +11,18 @@
                     {# ------------- unlogged NAVBAR  --------------#}
                     {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-sm-0">
-                            <li class="nav-item">
+                        <duv class="navbar-nav ms-auto mb-2 mb-sm-0">
+                    {#        <div class="nav-item">
                                 <a class="nav-link text-light" aria-current="page" href="#">{{ 'navbar.public.features' | trans }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light">{{ 'navbar.public.pricing' | trans }}</a>           
-                            </li>
-                            <li class="nav-item ms-3">
+                            </div>
+                            <div class="nav-item">
+                                <a class="nav-link text-light">{{ 'navbar.public.pricing' | trans }}</a>
+                            </div>
+                    #}
+                            <div class="nav-item ms-3">
                                 <a href="{{ path('app_login') }}" class="btn btn-outline-light">{{ 'navbar.public.login' | trans }}</a>
-                            </li>
-                        </ul>
+                            </div>
+                        </div>
                     </div>
                     {% endif %}
                     {# --------------------------------------------- #}
@@ -31,7 +32,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <div class="navbar-nav ms-auto mb-2 mb-sm-0">
                             <div class="nav-item ">
-                                <a class="nav-link text-light" aria-current="page" href="#"><i class="bi bi-people me-2"></i>{{ 'navbar.admin.prospects' | trans }}</a>
+                                <a class="nav-link text-light" aria-current="page" href="{{ path('prospect/all') }}"><i class="bi bi-people me-2"></i>{{ 'navbar.admin.prospects' | trans }}</a>
                             </div>
                             <div class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-people-fill me-2"></i>

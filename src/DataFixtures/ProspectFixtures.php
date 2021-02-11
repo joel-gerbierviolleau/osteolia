@@ -53,6 +53,71 @@ class ProspectFixtures extends Fixture
     	$manager->persist($prospectOKToBeContactedIinternationalPhoneAndSchool);
     	$manager->persist($prospectOKToBeContactedExpandedPhoneLongSchoolAndAbove5YoP);
 
+                $prospect5 = new Prospect();
+        $prospect5
+            ->setFirstName('prospect5')
+            ->setLastName('Not OK')
+            ->setEmail('prospect5@osteolia.com')
+            ->setIsOkToBeContacted(false);
+        $manager->persist($prospect5);
+
+                $prospect6 = new Prospect();
+        $prospect6
+            ->setFirstName('prospect6')
+            ->setLastName('Not OK')
+            ->setEmail('prospect6@osteolia.com')
+            ->setIsOkToBeContacted(false);
+        $manager->persist($prospect6);
+
+                $prospect7 = new Prospect();
+        $prospect7
+            ->setFirstName('prospect7')
+            ->setLastName('Not OK')
+            ->setEmail('prospect7@osteolia.com')
+            ->setIsOkToBeContacted(false);
+        $manager->persist($prospect7);
+
+                $prospect8 = new Prospect();
+        $prospect8
+            ->setFirstName('prospect8')
+            ->setLastName('Not OK')
+            ->setEmail('prospect8@osteolia.com')
+            ->setIsOkToBeContacted(false);
+        $manager->persist($prospect8);
+
+                $prospect9 = new Prospect();
+        $prospect9
+            ->setFirstName('prospect9')
+            ->setLastName('Not OK')
+            ->setEmail('prospect9@osteolia.com')
+            ->setIsOkToBeContacted(false);
+        $manager->persist($prospect9);
+
+                $prospect10 = new Prospect();
+        $prospect10
+            ->setFirstName('prospect10')
+            ->setLastName('Not OK')
+            ->setEmail('prospect10@osteolia.com')
+            ->setIsOkToBeContacted(false);
+        $manager->persist($prospect10);
+
+                $prospect11 = new Prospect();
+        $prospect11
+            ->setFirstName('prospect11')
+            ->setLastName('Not OK')
+            ->setEmail('prospect11@osteolia.com')
+            ->setIsOkToBeContacted(false);
+        $manager->persist($prospect11);
+
+                $prospect12 = new Prospect();
+        $prospect12
+            ->setFirstName('prospect12')
+            ->setLastName('Not OK')
+            ->setEmail('prospect12@osteolia.com')
+            ->setIsOkToBeContacted(false);
+        $manager->persist($prospect12);
+
+
         $manager->flush();
     }
 }

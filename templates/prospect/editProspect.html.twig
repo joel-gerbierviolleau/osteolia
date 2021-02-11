@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'prospect.admin.edit.page_title'}}{% endblock %}
+
+{% block body %}
+
+	<main class="container-lg">
+	  	<div class="row py-5">
+	  		<div class="col">
+
+  				<h3 class="text-osteolia">{{ 'prospect.admin.edit.title' | trans }}</h3>
+  				<p class="lead">{{ 'prospect.admin.properties.creationDate' | trans({'%creation_date%' : prospect.creationDate|date('d:m:Y')} ) }}</p>
+  				<div class="col-6">
+	  				<h5 class="text-light-osteolia">Détail du prospect</h5>
+	  				{{ form(form) }}
+	  			</div>	
+            </div>
+        </div>
+    </main>
+
+ {% endblock %}

@@ -22,6 +22,8 @@ class HomeController extends AbstractController
     	$prospect = new Prospect();
         $em = $this->getDoctrine()->getManager();
 
+        $allProspects = $em->getRepository(Prospect::class)->findAll();
+
     	$form = $this->createForm(ProspectType::class, $prospect);
     	$form->handleRequest($request);
 
@@ -45,6 +47,7 @@ class HomeController extends AbstractController
         return $this->render('index.html.twig', [
             'form' => $form->createView(),
             'prospect' => $prospect,
+            'allProspects' => $allProspects,
         ]);
     }
 

@@ -19,6 +19,8 @@ use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticator;
 use Symfony\Component\Security\Guard\PasswordAuthenticatedInterface;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
+use Symfony\Contracts\Translation\TranslatorInterface;
+
 
 class OsteoliaAuthenticator extends AbstractFormLoginAuthenticator implements PasswordAuthenticatedInterface
 {
@@ -71,7 +73,7 @@ class OsteoliaAuthenticator extends AbstractFormLoginAuthenticator implements Pa
 
         if (!$user) {
             // fail authentication with a custom error
-            throw new CustomUserMessageAuthenticationException('Email could not be found.');
+            throw new CustomUserMessageAuthenticationException('Email inconnu - contactez-nous ou vérifiez votre saisie ;)');
         }
 
         return $user;
