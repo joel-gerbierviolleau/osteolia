@@ -11,8 +11,6 @@ use App\Entity\Prospect;
 use App\Form\ProspectType;
 
 
-
-
 class ProspectController extends AbstractController
 {
 
@@ -62,7 +60,7 @@ class ProspectController extends AbstractController
     }
 
     /**
-     * @Route("/admin/prospect/all", name="prospect/all")
+     * @Route("/admin/prospects-list/{page<\d+>}", name="prospect/all")
     */
     public function allProspects(Request $request): Response
     {
@@ -76,7 +74,7 @@ class ProspectController extends AbstractController
     }
 
     /**
-     * @Route("/admin/prospect/edit-{id}", name="prospect/edit")
+     * @Route("/admin/prospect/edit-{id<\d+>}", name="prospect/edit")
     */
     public function editProspect(Request $request, Prospect $prospect, TranslatorInterface $translator): Response
     {

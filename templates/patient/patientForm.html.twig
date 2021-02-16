@@ -1,0 +1,77 @@
+			<div class="col">
+			   <div class="card card-body">
+		  			{{ form_start(form, {'attr' : {'class' : ''}})  }}
+			   		<div class="row">
+	  					<div class="col-12 mb-3">
+			  				<label class="form-label">{{ 'patient.form.gender.label' | trans }}</label>
+	  						<div class="form-check form-check-inline">
+	  							<input type="radio" id="patient_gender_0" name="patient[gender]" required="required" class=" form-check-input" value="1">
+						        <label class="form-check-label required" for="patient_gender_0">{{ 'patient.form.gender.man' | trans }}</label>
+					        </div>
+	  						<div class="form-check form-check-inline">
+	  							<input type="radio" id="patient_gender_1" name="patient[gender]" required="required" class=" form-check-input" value="2">
+						        <label class="form-check-label required" for="patient_gender_1">{{ 'patient.form.gender.woman' | trans }}</label>
+					        </div>
+	  						<div class="form-check form-check-inline">
+	  							<input type="radio" id="patient_gender_2" name="patient[gender]" required="required" class=" form-check-input" value="3">
+						        <label class="form-check-label required" for="patient_gender_2">{{ 'patient.form.gender.non_binar' | trans }}</label>
+					        </div>
+		  				</div>
+						<div class="col-lg-6 pe-lg-5">
+							<div class="row">
+			  					<div class="col-lg-6 mb-3">
+				  					{{ form_label(form.firstName, 'patient.form.firstName.label' | trans) }}
+				  					{{ form_widget(form.firstName, {'attr' : {'placeholder' : 'patient.form.firstName.placeholder' | trans }}) }}
+				  				</div>
+								<div class="col-lg-6 mb-3">
+				  					{{ form_label(form.lastName, 'patient.form.lastName.label' | trans) }}
+				  					{{ form_widget(form.lastName, {'attr' : {'placeholder' : 'patient.form.lastName.placeholder' | trans }}) }}
+			  					</div>
+				  			</div>
+		  					<div class="col-8 col-lg-6 mb-3">
+			  					{{ form_label(form.birthDate, 'patient.form.birthDate.label' | trans) }}
+			  					{{ form_widget(form.birthDate, {'attr' : {'placeholder' : 'patient.form.birthDate.placeholder' | trans }}) }}
+			  				</div>	  				
+							<div class="mb-3">
+				  				<label class="form-label">{{ 'patient.form.address.label' | trans }}</label>
+			  					{{ form_widget(form.addressLine1, {'attr' : {'placeholder' : 'patient.form.addressLine1.placeholder' | trans, 'class' : 'mb-2'}} ) }}
+			  					{{ form_widget(form.addressLine2, {'attr' : {'placeholder' : 'patient.form.addressLine2.placeholder' | trans, 'class' : 'mb-2'}} ) }}
+								<div class="row">	
+									<div class="col-lg-3 mb-2">  					
+				  					{{ form_widget(form.zipcode, {'attr' : {'placeholder' : 'patient.form.zipcode.placeholder' | trans}} ) }}
+					  				</div>
+									<div class="col-lg-9">  					
+				  					{{ form_widget(form.city, {'attr' : {'placeholder' : 'patient.form.city.placeholder' | trans}} ) }}
+					  				</div>
+				  				</div>
+		  					</div>
+	  					</div>
+	  					<div class="col-lg-6 ps-lg-5">
+		  					<div class="col-lg-6 mb-3">
+			  					{{ form_label(form.phoneNumber, 'patient.form.phoneNumber.label' | trans, {'attr' : {'class' : 'mb-2'}} ) }}
+			  					{{ form_widget(form.phoneNumber, {'attr' : {'placeholder' : 'patient.form.phoneNumber.placeholder' | trans, 'class' : 'mb-2'}} ) }}
+			  				</div>
+		  					<div class="col-lg-8 mb-3">
+			  					{{ form_label(form.email, 'patient.form.email.label' | trans) }}
+			  					{{ form_widget(form.email, {'attr' : {'placeholder' : 'patient.form.email.placeholder' | trans }}) }}
+			  				</div>  					
+		  					<div class="mb-3">
+			  					{{ form_label(form.contactComment, 'patient.form.contactComment.label' | trans) }}
+			  					{{ form_widget(form.contactComment, {'attr' : {'placeholder' : 'patient.form.contactComment.placeholder' | trans, 'rows' : 4 }}) }}
+			  				</div>
+		  				</div>
+		  				<div class='col-12'>
+			  				{{ form_widget(form._token) }}
+
+							{% if patient.createdBy is null %}
+			  					{{ form_widget(form.submit, {'attr' : {'class' : 'btn btn-osteolia col-lg-4 mb-2'}, 'label' : 'patient.form.new_patient_submit' | trans }) }}
+			  					<a class="btn btn-outline-osteolia ms-2 mb-2" href="{{ path('home') }}"><i class="bi-bi-x me-1 text-osteolia">{{ 'patient.form.new_patient_cancel' | trans }}</a>
+			  				{% else %}
+			  					{{ form_widget(form.submit, {'attr' : {'class' : 'btn btn-osteolia col-lg-4 mb-2'}, 'label' : 'patient.form.update_submit' | trans }) }}
+			  					<a class="btn btn-outline-osteolia ms- mb-2" href="{{ path('patient/patient', {'id' : patient.id}) }}"><i class="bi-bi-x me-1 text-osteolia"></i>{{ 'patient.form.update_patient_cancel' | trans }}</a>			  					
+			  				{% endif %}
+			  			</div>	
+		  			</div>
+					{{ form_end(form, {'render_rest' : false}) }}	  		
+		  		</div>
+	  		</div>

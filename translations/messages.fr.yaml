@@ -58,9 +58,9 @@ home:
     current_time_is: "Il est actuellement "
     admin:
         registered_prospects: "Nous avons actuellement %total_prospects% prospects enregistrés !"
-    osteo:
-        add_patient: "Créez un nouveau patient"
-        search_patient: "Saisissez le nom d'un de vos patients..."
+    pratician:
+        add_patient: "Ajouter un nouveau patient"
+        search_patient: "Rechercher un patient avec son nom..."
         search: "Go !"
 
 prospect:
@@ -214,5 +214,102 @@ login_form:
     back_to_home: "retournez à l'accueil."
     logged_out: "Vous avez bien été déconnecté(e). A bientôt :)"
     email_not_found: "Votre email nous est inconnu... une erreur en le saisissant peut être ?"
+
+patient:
+    all_patients:
+        page_title: "Osteolia - Tous mes patients"
+        content:
+            title: "Osteolia - Tous mes patients"
+            lead: "Une bien belle liste de %total_patients% patients."
+            full_name: 'NOM Prénom'
+            age: "Age"
+            nb_consultations: "Nombre de consultations" 
+            last_consultation_date: "Dernière consultations le :"
+            phone_number: "Tel"
+            email: "Email"
+            actions: "Actions"
+            action: 
+                view: "Voir sa fiche"
+                update: "Mettre à jour"
+    message: 
+        successfully_created: "Votre nouveau patient est bien enregistré ! Vous pouvez ajouter ses antécédents médicaux."
+        unauthorized_access: "Ce que vous essayez de faire n'est pas possible sur un patient qui ne vous appartient pas..."
+        form_has_errors: "Il semble qu'il y ait une ou deux erreurs..."
+    patient:
+        page_title: "Osteolia - Patient %patient_lastName% %patient_firstName%"
+        content:
+            title: "Patient %patient_lastName%, %patient_firstName%"
+            lead: "%nb_consultation(s) - dernière visite le %%last_consultation_date%"
+            lead_first_consultation: "1ère consultation !"
+            years: " ans"
+            months: " mois" 
+            born_m: "Né le %birth_date%"
+            born_f: "Née le %birth_date%"
+            born_nb: "Né-e le %birth_date%"
+            contactComment: "Informations particulières de contact :"
+            missing_birthDate: "Vous n'avez pas saisi de date de naissance..."
+            missing_address: "Vous n'avez pas encore enregistré d'adresse pour ce patient..."
+            missing_phoneNumber: "Aucun N° de téléphone connu pour l'instant..."
+            missing_email: "Aucun email d'enregistré pour l'instant: vous ne pourrez pas lui envoyer sa facture automtiquement..."
+            underage_minor_warning_m: "Patient mineur"
+            underage_minor_warning_f: "Patiente mineure"
+            underage_minor_warning_nb: "Patient-e mineur-e"
+            actions: 
+                edit: "Mettre à jour"
+    form: 
+        gender:
+            label: "Est-il/elle :  "
+            man: "Un homme"
+            woman: "Une femme"
+            non_binar: "Un(e) non-binaire"
+        lastName: 
+            label: "Son nom ?"
+            placeholder: "Doe"
+        firstName: 
+            label: "Son prénom ?"
+            placeholder: "John"
+        birthDate: 
+            label: "Sa date de naissance ?"
+            placeholder: "04/01/1994"
+        address: 
+            label: "Son adresse ?"
+        addressLine1:
+            placeholder: "3 rue des vignes"
+        addressLine2:
+            placeholder: "(un éventuel complément d'adresse...)"
+        zipcode:
+            placeholder: "72000"
+        city:
+            placeholder: "LE MANS"
+        phoneNumber: 
+            label: "Un N° de téléphone ?"
+            placeholder: "06 12 34 56 78"
+        email: 
+            label: "Un email ?"
+            placeholder: "john.doe@some.where"
+        contactComment: 
+            label: "Un complément d'information ?"
+            placeholder: "Si votre patient(e) est mineur(e), indiquez ici le nom de son père/mere par exemple..."
+        new_patient_submit: "Sauvegarder et poursuivre !"
+        new_patient_cancel: "Annuler"
+        update_submit: "Mettre à jour et poursuivre"
+        update_patient_cancel: "Annuler"
+    new_patient: 
+        page_title: "Osteolia - Nouveau patient"
+        content: 
+                title: "Nouveau patient"
+                lead: "Commencez par quelques informations administratives à propos de votre patient, vous pourrez saisir ses antécédents et votre anamnèse juste après."
+    edit_patient: 
+        page_title: "Osteolia - Mise à jour du patient %patient_lastName% %patient_firstName%"
+        content: 
+                title: "Mise à jour du patient %patient_lastName% %patient_firstName%"
+                lead: "Les informations connues sont préaffichées. Les antécédents et les consultations passées ne soront pas modifiées :)"
+
+
+
+
+
+
+
 
 

@@ -57,10 +57,10 @@ class Prospect
     private $yearsOfPractice;
 
     /**
-     * @ORM\Column(type="string", length=15, nullable=true)
+     * @ORM\Column(type="string", length=20, nullable=true)
      * @Assert\Length(
      *      min = 10,
-     *      max = 12,
+     *      max = 20,
      *      minMessage = "prospect.errors.phoneNumber_too_short",
      *      maxMessage = "prospect.errors.phoneNumber_too_long"
      * )

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -43,6 +45,22 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $lastName;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Patient::class, mappedBy="createdBy")
+     */
+    private $patients;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Patient::class, mappedBy="createdOnBehalfOf")
+     */
+    private $patientsCreatedForMe;
+
+    public function __construct()
+    {
+        $this->createdOnBehalfOf = new ArrayCollection();
+        $this->patientsCreatedForMe = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -142,6 +160,66 @@ class User implements UserInterface
     public function setLastName(string $lastName): self
     {
         $this->lastName = $lastName;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Patient[]
+     */
+    public function getPatients(): Collection
+    {
+        return $this->patients;
+    }
+
+    public function addPatients(Patient $patients): self
+    {
+        if (!$this->patients->contains($patients)) {
+            $this->patients[] = $patients;
+            $patients->setCreatedBy($this);
+        }
+
+        return $this;
+    }
+
+    public function removePatients(Patient $patients): self
+    {
+        if ($this->patients->removeElement($patients)) {
+            // set the owning side to null (unless already changed)
+            if ($patients->getCreatedBy() === $this) {
+                $patients->setCreatedBy(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Patient[]
+     */
+    public function getPatientsCreatedForMe(): Collection
+    {
+        return $this->patientsCreatedForMe;
+    }
+
+    public function addPatientsCreatedForMe(Patient $patientsCreatedForMe): self
+    {
+        if (!$this->patientsCreatedForMe->contains($patientsCreatedForMe)) {
+            $this->patientsCreatedForMe[] = $patientsCreatedForMe;
+            $patientsCreatedForMe->setCreatedOnBehalfOf($this);
+        }
+
+        return $this;
+    }
+
+    public function removePatientsCreatedForMe(Patient $patientsCreatedForMe): self
+    {
+        if ($this->patientsCreatedForMe->removeElement($patientsCreatedForMe)) {
+            // set the owning side to null (unless already changed)
+            if ($patientsCreatedForMe->getCreatedOnBehalfOf() === $this) {
+                $patientsCreatedForMe->setCreatedOnBehalfOf(null);
+            }
+        }
 
         return $this;
     }

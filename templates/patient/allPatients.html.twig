@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}}{{ 'patient.all_patients.page_title' | trans }}{% endblock %}
+
+{% block body %}
+
+ 	<main class="container-lg">
+	  	<div class="row pt-5">
+		    <h1 class="text-osteolia">{{ 'patient.all_patients.content.title' | trans }}</h1>
+		    <p class="lead">
+		    	{{ 'patient.all_patients.content.lead' | trans({'%total_patients%': patients | length }) }}
+		    </p>
+	    </div>
+	    <div class="row">
+			<div class="col-12">
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th scope="col">Id</th>
+							<th scope="col">{{ 'patient.all_patients.content.full_name' | trans }}</th>							
+							<th scope="col">{{ 'patient.all_patients.content.age' | trans }}</th>							
+							<th scope="col">{{ 'patient.all_patients.content.nb_consultations' | trans }}</th>							
+							<th scope="col">{{ 'patient.all_patients.content.last_consultation_date' | trans }}</th>
+							<th scope="col">{{ 'patient.all_patients.content.phone_number' | trans }}</th>
+							<th scope="col">{{ 'patient.all_patients.content.email' | trans }}</th>
+							<th scope="col">{{ 'patient.all_patients.content.actions' | trans }}</th>
+						</tr>
+					</thead>
+					<tbody>
+					{% for p in patients %} 
+					<tr>
+						<td scope="row">{{ p.id }}</td>
+						<td>{{ p.lastName | upper }}, {{ p.firstName }}</td>
+						<td>{{ p.currentAge['y'] }}</td>
+						<td>1</td>
+						<td>15/02/2021</td>
+						<td>{{ p.phoneNumber }}</td>
+						<td>{{ p.email }}</td>
+						<td class="text-center">
+							<a href="{{ path('patient/patient', {'id' : p.id }) }}" class="btn btn-sm btn-osteolia mb-2 me-2"><i class="bi bi-eye me-2"></i>{{ 'patient.all_patients.content.action.view' | trans }}</a>
+							<a href="{{ path('patient/edit-patient', {'id' : p.id }) }}" class="btn btn-sm btn-outline-osteolia me-2"><i class="bi bi-pencil me-2"></i>{{ 'patient.all_patients.content.action.update' | trans }}</a></td>
+					</tr> 							
+					{% endfor %}
+					</tbody>
+				</table>
+  			</div>
+	    </div>
+    </main>
+
+
+{% endblock %}
