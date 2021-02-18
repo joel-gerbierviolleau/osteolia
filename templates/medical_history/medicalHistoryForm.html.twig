@@ -1,0 +1,60 @@
+			<div class="col">
+			   <div class="card card-body">
+		  			{{ form_start(form, {'attr' : {'class' : ''}})  }}
+			   		<div class="row">
+	  					<div class="col-12 mb-3">
+	  						<div class="row">
+								<div class="col-lg-6">
+						  			<div class="form-check form-switch mb-3">
+										{{ form_widget(form.hasSurgeryHistory, {'attr' : {'class' : 'form-check-input', 'data-bs-toggle': 'collapse', 'data-bs-target' : '#surgeryHistoryDetails'}, 'label' : 'medical_history.form.hasSurgeryHistory' | trans, 'data' : true}) }}
+									</div>
+				  					<div  id="surgeryHistoryDetails" class="mb-3 collapse{% if form.hasSurgeryHistory.vars.data == true %} show{% endif%}">
+					  					{#{ form_label(form.surgeryHistoryDetails, 'medical_history.form.surgeryHistoryDetails.label' | trans) } #}
+					  					{{ form_widget(form.surgeryHistoryDetails, {'attr' : {'placeholder' : 'medical_history.form.surgeryHistoryDetails.placeholder' | trans, 'rows' : 4 }}) }}
+					  				</div>
+								</div>
+								<div class="col-lg-6">
+						  			<div class="form-check form-switch mb-3">
+										{{ form_widget(form.hasTraumaHistory, {'attr' : {'class' : 'form-check-input', 'data-bs-toggle': 'collapse', 'data-bs-target' : '#traumaHistoryDetails'}, 'label' : 'medical_history.form.hasTraumaHistory' | trans, 'data' : true}) }}
+									</div>
+				  					<div id="traumaHistoryDetails" class="mb-3 collapse{% if form.hasTraumaHistory.vars.data == true %} show{% endif%}">
+					  					{#{ form_label(form.traumaHistoryDetails, 'medical_history.form.traumaHistoryDetails.label' | trans) } #}
+					  					{{ form_widget(form.traumaHistoryDetails, {'attr' : {'placeholder' : 'medical_history.form.traumaHistoryDetails.placeholder' | trans, 'rows' : 4 }}) }}
+					  				</div>
+								</div>
+								<div class="col-lg-6">
+						  			<div class="form-check form-switch mb-3">
+										{{ form_widget(form.hasMedicalTreatmentHistory, {'attr' : {'class' : 'form-check-input', 'data-bs-toggle': 'collapse', 'data-bs-target' : '#medicalTreatmentHistoryDetails'}, 'label' : 'medical_history.form.hasMedicalTreatmentHistory' | trans, 'data' : true}) }}
+									</div>
+				  					<div id="medicalTreatmentHistoryDetails" class="mb-3 collapse{% if form.hasMedicalTreatmentHistory.vars.data == true %} show{% endif%}">
+					  					{#{ form_label(form.medicalTreatmentHistoryDetails, 'medical_history.form.medicalTreatmentHistoryDetails.label' | trans) } #}
+					  					{{ form_widget(form.medicalTreatmentHistoryDetails, {'attr' : {'placeholder' : 'medical_history.form.medicalTreatmentHistoryDetails.placeholder' | trans, 'rows' : 4 }}) }}
+					  				</div>
+								</div>
+								<div class="col-lg-6">
+						  			<div class="form-check form-switch mb-3">
+										{{ form_widget(form.hasFamilialHistory, {'attr' : {'class' : 'form-check-input', 'data-bs-toggle': 'collapse', 'data-bs-target' : '#familialHistoryDetails'}, 'label' : 'medical_history.form.hasFamilialHistory' | trans, 'data' : true}) }}
+									</div>
+				  					<div id="familialHistoryDetails" class="mb-3 collapse{% if form.hasFamilialHistory.vars.data == true %} show{% endif%}">
+					  					{#{ form_label(form.familialHistoryDetails, 'medical_history.form.familialHistoryDetails.label' | trans) } #}
+					  					{{ form_widget(form.familialHistoryDetails, {'attr' : {'placeholder' : 'medical_history.form.familialHistoryDetails.placeholder' | trans, 'rows' : 4 }}) }}
+					  				</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-12 mb-3">
+							<div class="form-group col-md-6">
+								{{ form_label(form.regularPhysician, 'medical_history.form.regular_physician.label' | trans) }}
+								{{ form_widget(form.regularPhysician, {'attr' : {'placeholder' : 'medical_history.form.regular_physician.placeholder' | trans}}) }}
+							</div>
+						</div>
+		  				<div class='col-12'>
+			  				{{ form_widget(form._token) }}
+
+		  					{{ form_widget(form.submit, {'attr' : {'class' : 'btn btn-osteolia col-lg-4 mb-2'}, 'label' : 'medical_history.form.submit' | trans }) }}
+			  			</div>	
+	  			</div>
+				{{ form_end(form, {'render_rest' : false}) }}	 
+			</div>
+		</div> 	
+								

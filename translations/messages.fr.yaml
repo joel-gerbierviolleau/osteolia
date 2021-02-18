@@ -305,9 +305,46 @@ patient:
                 title: "Mise à jour du patient %patient_lastName% %patient_firstName%"
                 lead: "Les informations connues sont préaffichées. Les antécédents et les consultations passées ne soront pas modifiées :)"
 
-
-
-
+medical_history:
+    messages:
+        successfully_saved: "Antécédents bien enregistrés !"
+        last_update_today: "Mise à jour aujourd'hui !"
+        laste_update_before_today: "Dernière mise à jour le "
+        no_medical_history: "Aucun antécédent déclaré jusque là. Vous pouvez en ajouter en cliquant sur l'icone éditer ci-contre."
+        no_regular_physician: "Aucun medicin traitant enregistré pour ce patient..."
+    page_title: "Osteolia - Mise à jour des antécédents de %patient_lastName% %patient_firstName%"
+    content:
+        title: "Mise à jour des antécédents de %patient_lastName% %patient_firstName%"
+        lead=: ""
+    view: 
+        card_title: "Antécédents méédicaux déclarés"
+        surgeryHistory: "Antécédents chirurgicaux"
+        traumaHistory: "Antécédents traumatiques"
+        medicalTreatmentHistory: "Traitements médicaux"
+        familialHistory: "Antécédents familiaux"
+        regular_physician: "Médecin traitant"
+        edit: "Mettre à jour" 
+    form:
+        hasSurgeryHistory: "Votre patient a-til des antécédents chirurgicaux ?"
+        surgeryHistoryDetails:
+            label: "Antécédents chirurgicaux"
+            placeholder: Saisissez ici une courte description des antécédents chirurgicaux de votre patient..."
+        hasTraumaHistory: "Votre patient a-til des antécédents traumatiques autres ?"
+        traumaHistoryDetails:
+            label: "Antécédents traumatiques"
+            placeholder: Saisissez ici une courte description des antécédents traumatiques de votre patient..."
+        hasMedicalTreatmentHistory: "Votre patient suit-il un traitement médical particulier ?"
+        medicalTreatmentHistoryDetails:
+            label: "Traitements médicaux"
+            placeholder: Saisissez ici une courte description des traitementq médicaux de votre patient..."
+        hasFamilialHistory: "Votre patient a-til des antécédents familiaux notables ?"
+        familialHistoryDetails:
+            label: "Antécédents familiaux"
+            placeholder: "Saisissez ici une courte description des antécédents familiaux de votre patient..."
+        regular_physician: 
+            label: "Medecin traitant"
+            placeholder: "Dr Gregory House"
+        submit: "Sauvegarder"
 
 
 

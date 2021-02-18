@@ -1,0 +1,97 @@
+		    		<div class="card">
+					{#	<div class="card-header alert-danger">
+							<i class="bi bi-info-circle-fill ms-3"></i>
+						</div> #}
+			       		<div class="card-body">
+			       			<div class="row mb-3">
+			       				<div class="col-10 col-md-11 ">
+			       					<strong class="text-osteolia">{{ 'medical_history.view.card_title' | trans }}</strong>
+				       			</div>
+				       			<div class="col-2 col-md-1">
+				       				<a href="{{ path('patient/edit-medical-history', {'id' : patient.id}) }}"><i class="bi bi-pencil-square text-osteolia"></i>{# { 'medical_history.view.edit' | trans } #}</a>
+				       			</div>
+				       		</div>
+				       		<div class="row mb-3">
+								<div class="col-12">
+									{% if  patient.medicalHistory.hasSurgeryHistory
+										or patient.medicalHistory.hasTraumaHistory
+										or patient.medicalHistory.hasMedicalTreatmentHistory
+										or patient.medicalHistory.hasFamilialHistory %}
+					       			<div class="accordion mb-3" id="medicalHistory">
+					       				{% if patient.medicalHistory.hasSurgeryHistory == true %}
+										<div class="accordion-item">
+											<h2 class="accordion-header" id="surgeryHistory">
+												<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#surgeryHistoryDetails" aria-expanded="true" aria-controls="surgeryHistoryDetails">
+												{{ 'medical_history.view.surgeryHistory' | trans }}
+												</button>
+											</h2>
+											<div id="surgeryHistoryDetails" class="accordion-collapse collapse" aria-labelledby="surgeryHistory" data-bs-parent="#medicalHistory">
+												<div class="accordion-body">
+													{{ patient.medicalHistory.surgeryHistoryDetails }}
+												</div>
+											</div>
+										{% endif %}
+					       				{% if patient.medicalHistory.hasTraumaHistory %}
+										</div>
+										<div class="accordion-item">
+											<h2 class="accordion-header" id="traumaHistory">
+												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#traumaHistoryDetails" aria-expanded="false" aria-controls="traumaHistoryDetails">
+												{{ 'medical_history.view.traumaHistory' | trans }}
+												</button>
+											</h2>
+											<div id="traumaHistoryDetails" class="accordion-collapse collapse" aria-labelledby="traumaHistory" data-bs-parent="#medicalHistory">
+												<div class="accordion-body">
+													{{ patient.medicalHistory.traumaHistoryDetails }}
+												</div>
+											</div>
+										{% endif %}
+					       				{% if patient.medicalHistory.hasMedicalTreatmentHistory %}
+										</div>
+										<div class="accordion-item">
+											<h2 class="accordion-header" id="medicalTreatmentHistory">
+												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#medicalTreatmentHistoryDetails" aria-expanded="false" aria-controls="medicalTreatmentHistoryDetails">
+												{{ 'medical_history.view.medicalTreatmentHistory' | trans }}
+												</button>
+											</h2>
+											<div id="medicalTreatmentHistoryDetails" class="accordion-collapse collapse" aria-labelledby="medicalTreatmentHistory" data-bs-parent="#medicalHistory">
+												<div class="accordion-body">
+													{{ patient.medicalHistory.medicalTreatmentHistoryDetails }}
+												</div>
+											</div>
+										</div>
+										{% endif %}
+					       				{% if patient.medicalHistory.hasFamilialHistory %}
+										<div class="accordion-item">
+											<h2 class="accordion-header" id="familialHistory">
+												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#familialHistoryDetails" aria-expanded="false" aria-controls="familialHistoryDetails">
+												{{ 'medical_history.view.familialHistory' | trans }}
+												</button>
+											</h2>
+											<div id="familialHistoryDetails" class="accordion-collapse collapse" aria-labelledby="familialHistory" data-bs-parent="#medicalHistory">
+												<div class="accordion-body">
+													{{ patient.medicalHistory.familialHistoryDetails }}
+												</div>
+											</div>
+										</div>
+										{% endif %}
+									</div>
+									{% else %}
+										{{ 'medical_history.messages.no_medical_history' | trans }}
+									{% endif %}
+								</div>
+							</div>
+			       			<div class="row mb-3">
+			       				<div class="col-12 ">
+			       					<p>
+				       					<strong class="text-osteolia">{{ 'medical_history.view.regular_physician' | trans }}</strong>
+				       				</p>
+				       				<p> 
+			       					{% if patient.medicalHistory.regularPhysician %}
+				       					{{ patient.medicalHistory.regularPhysician }} </p>
+			       					{% else %}
+			       						{{ 'medical_history.messages.no_regular_physician' | trans }}
+			       					{% endif %}
+				       			</div>
+				       		</div>
+				       	</div>
+				    </div>

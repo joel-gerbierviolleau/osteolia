@@ -1,0 +1,69 @@
+		    		<div class="card mb-3">
+			    		{% if patient.currentAge['y'] < 18 %}
+						<div class="card-header alert-warning">
+							<i class="bi bi-info-circle-fill ms-3"></i>
+		       				{% if patient.gender == 1 %}{{ 'patient.patient.content.underage_minor_warning_m' | trans }}{% endif %}
+		       				{% if patient.gender == 2 %}{{ 'patient.patient.content.underage_minor_warning_f' | trans }}{% endif %}
+		       				{% if patient.gender == 3 %}{{ 'patient.patient.content.underage_minor_warning_nb' | trans }}{% endif %}
+						</div>
+						{% endif %}
+			       		<div class="card-body">
+			       			<div class="row mb-3">
+			       				<div class="col-10 col-md-11">
+			       				{{ patient.lastName |upper }} {{ patient.firstName }}</br>
+			       				{% if patient.birthDate is not empty %}
+				       				{% if patient.gender == 1 %}{{ 'patient.patient.content.born_m' | trans({'%birth_date%' : patient.birthDate | date('d/M/Y')}) }}{% endif %}
+				       				{% if patient.gender == 2 %}{{ 'patient.patient.content.born_f' | trans({'%birth_date%' : patient.birthDate | date('d/M/Y')}) }}{% endif %}
+				       				{% if patient.gender == 3 %}{{ 'patient.patient.content.born_nb' | trans({'%birth_date%' : patient.birthDate | date('d/M/Y')}) }}{% endif %}
+			       				{% else %}
+			       					{{ 'patient.patient.content.missing_birthDate' | trans }}
+			       				{% endif %}
+				       			</div>
+				       			<div class="col-2 col-md-1">
+				       				<a href="{{ path('patient/edit-patient', {'id' : patient.id}) }}"><i class="bi bi-pencil-square text-osteolia"></i>{# { 'patient.patient.content.actions.edit' | trans } #}</a>
+				       			</div>
+			       			</div>
+							<div class="row mb-3">
+				       			<div class="col-2 col-md-1">
+				       				<i class="bi bi-house text-osteolia"></i>
+			       				</div>
+				       			<div class="col-10 col-md-11">
+								{% if patient.addressLine1 is not empty or patient.zipcode is not empty or patient.city is not empty %}
+				       				{{ patient.addressLine1 }}
+				       				{% if patient.addressLine2 is not empty %}</br>{{ patient.addressLine2 }}{% endif %}
+				       				</br>{{ patient.zipcode }} {{ patient.city |upper }}
+			       				{% else %}
+				       				{{ 'patient.patient.content.missing_address' | trans }}
+			       				{% endif %}
+			       				</div>
+			       			</div>
+							<div class="row mb-3">
+				       			<div class="col-2 col-md-1">
+				       				<i class="bi bi-telephone text-osteolia"></i>
+			       				</div>
+				       			<div class="col-10 col-md-11">
+			       				{% if patient.phoneNumber is not empty %}
+				       				{{ patient.phoneNumber }}</br>
+			       				{% else %}
+			       					{{ 'patient.patient.content.missing_phoneNumber' | trans }}
+			       				{% endif %}
+			       				</div>
+				       			<div class="col-2 col-md-1">
+									<i class="bi bi-envelope text-osteolia"></i>
+			       				</div>
+				       			<div class="col-10 col-md-11">
+			       				{% if patient.phoneNumber is not empty %}
+				       				{{ patient.email }}
+			       				{% else %}
+			       					{{ 'patient.patient.content.missing_email' | trans }}
+			       				{% endif %}
+			       				</div>
+			       			</div>
+			       			{% if patient.contactComment is not empty %}
+			       			<p>
+			       				<strong class="text-osteolia">{{ 'patient.patient.content.contactComment' | trans }}</strong></br>
+			       				{{ patient.contactComment }}
+			       			</p>
+			       			{% endif %}
+						</div>		
+			    	</div>

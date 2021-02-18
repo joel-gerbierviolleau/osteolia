@@ -110,6 +110,11 @@ class Patient
      */
     private $deletedBy;
 
+    /**
+     * @ORM\OneToOne(targetEntity=MedicalHistory::class, mappedBy="patient", cascade={"persist", "remove"})
+     */
+    private $medicalHistory;
+
 
     public function __construct()
     {
@@ -350,6 +355,28 @@ class Patient
     public function setDeletedBy(?User $deletedBy): self
     {
         $this->deletedBy = $deletedBy;
+
+        return $this;
+    }
+
+    public function getMedicalHistory(): ?MedicalHistory
+    {
+        return $this->medicalHistory;
+    }
+
+    public function setMedicalHistory(?MedicalHistory $medicalHistory): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($medicalHistory === null && $this->medicalHistory !== null) {
+            $this->medicalHistory->setPatient(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($medicalHistory !== null && $medicalHistory->getPatient() !== $this) {
+            $medicalHistory->setPatient($this);
+        }
+
+        $this->medicalHistory = $medicalHistory;
 
         return $this;
     }
