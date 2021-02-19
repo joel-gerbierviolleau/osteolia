@@ -1,0 +1,43 @@
+	    				{% for c in patient.consultations|reverse %}
+			    		<div class="card mb-3">
+							{% if c.toDo is not empty %}
+							<div class="card-header alert-info">
+								<i class="bi bi-info-circle-fill ms-3"></i> {{ 'consultation.view_consultation.content.toDo_title' | trans }}
+							</div>
+							{% endif %}
+				       		<div class="card-body">
+				       			<div class="row">
+					       			<div class="col-10 col-md-11">
+					       				<h5 class="card-title">{{ 'consultation.view_consultation.content.date' | trans({'%date%' : c.creationDate|date('d/m/Y')}) }} - {{ c.id }}</h5>
+									</div>
+									<div class="col-2 col-md-1">
+										<a class="text-osteolia" href="{{ path('consultation/edit-consultation', {'id' : c.id}) }}"><i class="bi bi-pencil-square text-osteolia"></i></a>
+									</div>					
+									<h6 class="card-subtitle mb-2 text-muted">{{ 'consultation.view_consultation.content.anamnesia' | trans }}</h6>
+				       				<p>
+				       				{% if c.anamnesia is not empty %}
+				       					{{ c.anamnesia }}
+				       				{% else %}
+				       					{{ 'consultation.view_consultation.missing_anamnesia' | trans }}
+				       				{% endif %}
+				       				</p>
+				       				<h6 class="card-subtitle mb-2 text-muted">{{ 'consultation.view_consultation.content.procedures' | trans }}</h6>		
+				       				<p>
+				       				{% if c.procedures is not empty %}
+				       					{{ c.procedures }}
+				       				{% else %}
+				       					{{ 'consultation.view_consultation.missing_procedures' | trans }}
+				       				{% endif %}
+				       				</p>
+
+				       				{% if c.toDo is not empty %}
+				       				<h6 class="card-subtitle mb-2 text-muted">{{ 'consultation.view_consultation.content.toDo_content' | trans }}</h6>		
+				       				<p>
+				       					{{ c.toDo }}
+				       				</p>				       				
+				       				{% endif %}
+		       					</div>
+	       					</div>
+	       				</div>
+	    				{% endfor %}
+

@@ -256,6 +256,9 @@ patient:
             underage_minor_warning_nb: "Patient-e mineur-e"
             actions: 
                 edit: "Mettre à jour"
+                edit_medical_history: "Renseigner les antécédents médicaux"
+                first_consultation: "Ajoutez une première consultation !"
+                add_consultation: "Nouvelle consultation !"
     form: 
         gender:
             label: "Est-il/elle :  "
@@ -346,7 +349,41 @@ medical_history:
             placeholder: "Dr Gregory House"
         submit: "Sauvegarder"
 
-
-
+consultation: 
+    view_consultation:
+        page_title: "Osteolia | Consultation du %date% pour %patient_lastName% %patient_firstName%"
+        content:
+            title: "Mise à jour d'une consultation pour %patient_lastName% %patient_firstName%"
+            lead: "Ca va déjà mieux non ?"
+            toDo_title: "Des actes restaient à faire !"
+            date: "Consultation du %date%"
+            anamnesia: "Anamnèse"
+            procedures: "Pratiques effectuées"
+            toDo_content: "Actions à prévoir lors de la consultation"   
+            missing_anamnesia: "(très) Etrangement, aucune anamnèse n'a été enregistrée !"     
+            missing_procedure: "Aucun acte ou pratique n'a été saisi pour cette consultation..."     
+    new_consultation: 
+        page_title: "Osteolia | nouvelle consultation pour %patient_lastName% %patient_firstName%"
+        content:
+            title: "Nouvelle consultation pour %patient_lastName% %patient_firstName%"
+            lead: "En route vers le mieux !"
+    edit_consultation: 
+        page_title: "Osteolia | MaJ d'une consultation pour %patient_lastName% %patient_firstName%"
+        content:
+            title: "Mise à jour d'une consultation pour %patient_lastName% %patient_firstName%"
+            lead: "Ca va déjà mieux non ?"
+            date: "Consultation du %date%"
+    form: 
+        anamnesia: 
+            label: "Votre anamnèse : "
+            placeholder: "Saisissez ici les éléments de votre anamnèse : allez-y sans crainte, vous pourrez toujours modifier votre texte par la suite :)"
+        procedures: 
+            label: "Les actes et pratiques que vous avez réalisés :"
+            placeholder: "Là aussi, allez-y sans crainte, vous pourrez toujours modifier votre texte par la suite :)"
+        toDo: 
+            label: "A faire lors d'un prochain rendez-vous :"
+            placeholder: "Si vous prévoyez de réaliser des actes ou des pratiques complémentaires lors d'un prochain rendez-vous, notez-les ici "
+        submit: "Sauvegarder et revenir à la fiche du patient"
+        submit_short: "Sauvegarder"
 
 

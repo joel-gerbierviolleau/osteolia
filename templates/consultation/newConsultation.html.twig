@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}}{{ 'consultation.new_consultation.page_title' | trans({'%patient_lastName%' : patient.lastName | upper, '%patient_firstName%' : patient.firstName}) }}{% endblock %}
+
+{% block body %}
+
+ 	<main class="container-lg">
+	  	<div class="row py-5">
+		    <h1 class="text-osteolia">{{ 'consultation.new_consultation.content.title' | trans({'%patient_lastName%' : patient.lastName | upper, '%patient_firstName%' : patient.firstName}) }}</h1>
+		    <p class="lead">
+		    	{{ 'consultation.new_consultation.content.lead' | trans }}
+		    </p>
+  			{% if not form.vars.valid %}
+  			<p class="alert alert-warning" role="alert">
+				{{ 'patient.messages.form_has_errors' | trans }}
+			</p>
+			{% endif %}
+
+			{{ include('consultation/consultationForm.html.twig') }}
+
+	    </div>
+    </main>
+
+{% endblock %}

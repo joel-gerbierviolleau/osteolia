@@ -1,0 +1,24 @@
+			<div class="col">
+			   <div class="card card-body">
+		  			{{ form_start(form, {'attr' : {'class' : ''}})  }}
+			   		<div class="row">
+	  					<div class="col-md-6 mb-3">
+	  						{{ form_label(form.anamnesia, 'consultation.form.anamnesia.label' | trans) }}
+		  					{{ form_widget(form.anamnesia, {'attr' : {'placeholder' : 'consultation.form.anamnesia.placeholder' | trans, 'rows' : 6 }}) }}
+	  					</div>
+	  					<div class="col-md-6 mb-3">
+	  						{{ form_label(form.procedures, 'consultation.form.procedures.label' | trans) }}
+		  					{{ form_widget(form.procedures, {'attr' : {'placeholder' : 'consultation.form.procedures.placeholder' | trans, 'rows' : 6 }}) }}
+	  					</div>
+	  				</div>
+	  				<div class="row">
+	  					<div class="col-12 mb-3">	  					
+	  						{{ form_label(form.toDo, 'consultation.form.toDo.label' | trans) }}
+		  					{{ form_widget(form.toDo, {'attr' : {'placeholder' : 'consultation.form.toDo.placeholder' | trans, 'rows' : 3 }}) }}
+  						</div>
+	  					{{ form_widget(form.submit, {'attr' : {'class' : 'btn btn-osteolia col-lg-4 mb-2'}, 'label' : 'consultation.form.submit' | trans }) }}
+	  				</div>	  			
+	  			{{ form_widget(form._token) }}
+				{{ form_end(form, {'render_rest' : false}) }}	 
+		  		</div>
+		  	</div>

@@ -22,20 +22,31 @@
 		    		{{ 'patient.patient.content.lead_first_consultation' | trans }}
 		    	{% endif %}
 		    </p>
-		    <div class="'row">
-		    	<div class="col-md-6">
-		    		{{ include('patient/administrative_informations/displayAI.html.twig') }}
-		    		{% if patient.medicalHistory is empty %}
-	    			<a href="{{ path('patient/edit-medical-history', {'id' : patient.id}) }}" class='btn btn-osteolia mt-3'>Renseigner les antécédents médicaux</a>
-	    			{% else %}
-	    			{{ include('medical_history/viewMedicalHistory.html.twig') }}
-	    			{% endif %}
-				</div>
-				<div class="col-md-6">
-										
-				</div>
-			</div>
 	    </div>
+	    <div class="row">
+	    	<div class="col-md-6 pe-md-5">
+	    		{{ include('patient/administrative_informations/displayAI.html.twig') }}
+	    		{% if patient.medicalHistory is empty %}
+    				<a href="{{ path('patient/edit-medical-history', {'id' : patient.id}) }}" class='btn btn-osteolia mt-3'>{{ 'patient.patient.content.actions.edit_medical_history' | trans }}</a>
+    			{% else %}
+    				{{ include('medical_history/viewMedicalHistory.html.twig') }}
+    			{% endif %}
+			</div>
+			<div class="col-md-6 ps-md-5">
+			{% if patient.medicalHistory is not empty %}
+				{% if patient.consultations is empty %}
+				<div class="d-flex mb-3">
+    				<a href="{{ path('patient/new-consultation', {'id' : patient.id}) }}" class='btn btn-osteolia mx-auto'><i class="bi bi-clipboard-plus me-2"></i>{{ 'patient.patient.content.actions.first_consultation' | trans }}</a>
+    			</div>
+    			{% else %}
+				<div class="d-flex mb-3">
+    				<a href="{{ path('patient/new-consultation', {'id' : patient.id}) }}" class='btn btn-osteolia mx-auto'><i class="bi bi-clipboard-plus me-2"></i>{{ 'patient.patient.content.actions.add_consultation' | trans }}</a>
+    			</div>
+				{{ include('consultation/viewAllConsultations.html.twig') }}
+    			{% endif %}
+    		{% endif %}
+			</div>
+		</div>
     </main>
 
 {% endblock %}

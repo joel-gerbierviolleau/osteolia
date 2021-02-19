@@ -56,10 +56,16 @@ class User implements UserInterface
      */
     private $patientsCreatedForMe;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Consultation::class, mappedBy="createdBy")
+     */
+    private $consultations;
+
     public function __construct()
     {
         $this->createdOnBehalfOf = new ArrayCollection();
         $this->patientsCreatedForMe = new ArrayCollection();
+        $this->consultations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -218,6 +224,36 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($patientsCreatedForMe->getCreatedOnBehalfOf() === $this) {
                 $patientsCreatedForMe->setCreatedOnBehalfOf(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Consultation[]
+     */
+    public function getConsultations(): Collection
+    {
+        return $this->consultations;
+    }
+
+    public function addConsultation(Consultation $consultation): self
+    {
+        if (!$this->consultations->contains($consultation)) {
+            $this->consultations[] = $consultation;
+            $consultation->setCreatedBy($this);
+        }
+
+        return $this;
+    }
+
+    public function removeConsultation(Consultation $consultation): self
+    {
+        if ($this->consultations->removeElement($consultation)) {
+            // set the owning side to null (unless already changed)
+            if ($consultation->getCreatedBy() === $this) {
+                $consultation->setCreatedBy(null);
             }
         }
 
