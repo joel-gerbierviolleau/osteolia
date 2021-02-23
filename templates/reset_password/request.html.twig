@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{'reset_password.page_title' | trans }}{% endblock %}
+
+{% block body %}
+    <main class="container-lg">
+        <div class="row py-5">
+            <div class="col-md-4 offset-md-4">
+
+                {% for flashError in app.flashes('reset_password_error') %}
+                    <div class="alert alert-danger mb-3" role="alert">{{ flashError }}</div>
+                {% endfor %}
+
+                    <h4 class="h3 mb-3 text-center text-osteolia">{{'reset_password.title' | trans }}</h4>
+                    {{ form_start(requestForm) }}
+                        {{ form_widget (requestForm.email, {'attr' : {'class' : 'from-control text-center mb-3', 'placeholder' : 'reset_password.placeholder' | trans }}) }}
+                        <div class="mb-3 text-center">
+                            <small>{{ 'reset_password.text' | trans }}</small>
+                        </div>
+                        <div class="d-flex">
+                            <button class="btn btn-osteolia mx-auto">{{'reset_password.button' | trans }}</button>
+                        </div>
+                    {{ form_end(requestForm) }}
+            </div>
+        </div>
+    </main>
+
+{% endblock %}

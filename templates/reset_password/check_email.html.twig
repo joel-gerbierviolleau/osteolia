@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Password Reset Email Sent{% endblock %}
+
+{% block body %}
+    <main class="container-lg">
+        <div class="row py-5">
+            <div class="col-md-4 offset-md-4">
+                <p>{{'reset_password.email_sent' | trans({'%expires_in%': tokenLifetime|date('g')}) }}</p>
+    			<p>{{ 'reset_password.check_spams_or' | trans }}<a href="{{ path('app_forgot_password_request') }}">{{ 'reset_password.try_again' | trans }}</a>.</p>
+			</div>
+		</div>
+	</main>
+{% endblock %}

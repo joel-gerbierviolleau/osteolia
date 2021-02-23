@@ -60,7 +60,7 @@ class ProspectController extends AbstractController
     }
 
     /**
-     * @Route("/admin/prospects-list/{page<\d+>}", name="prospect/all")
+     * @Route("/admin/prospects-list", name="prospect/all")
     */
     public function allProspects(Request $request): Response
     {

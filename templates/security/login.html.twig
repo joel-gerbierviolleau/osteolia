@@ -25,9 +25,7 @@
                    <h4 class="h3 mb-3 text-center text-osteolia">{{ 'login_form.title' | trans }}</h4>
                     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control mb-3 text-center" placeholder="{{ 'login_form.email_placeholder' | trans }}" required autofocus>
                     <input type="password" name="password" id="inputPassword" class="form-control mb-3 text-center" placeholder="{{ 'login_form.password_placeholder' | trans }}" required>
-                    <input type="hidden" name="_csrf_token"
-                           value="{{ csrf_token('authenticate') }}"
-                    >
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                     <div class="row">
                         <div class="d-flex mb-3">
                             <label class="mx-auto">
@@ -37,6 +35,11 @@
                         <div class="d-flex">
                             <button class="btn btn-osteolia mx-auto" type="submit">{{ 'login_form.submit' | trans }}</button>
                         </div>
+                        <div class="d-flex mt-4">
+                            <a class="text-light-osteolia mx-auto fs-6" href="{{ path('app_forgot_password_request') }}">
+                                <small>{{ 'login_form.forgot_your_password' | trans }}</small>
+                            </a>
+                        </div>                        
                     </div>
                 </form>
             {% endif %}

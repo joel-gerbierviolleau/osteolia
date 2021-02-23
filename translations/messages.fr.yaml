@@ -70,7 +70,7 @@ prospect:
         has_errors: "On y est presque ! juste une ou deux erreurs à corriger et c'est bon :)"
         firstName: 
             label: "Votre prénom ?"
-            placeholder: "Tom"
+            placeholder: "John"
         lastName: 
             label: "Votre nom ?"
             placeholder: "Doe"
@@ -214,6 +214,43 @@ login_form:
     back_to_home: "retournez à l'accueil."
     logged_out: "Vous avez bien été déconnecté(e). A bientôt :)"
     email_not_found: "Votre email nous est inconnu... une erreur en le saisissant peut être ?"
+    forgot_your_password: "Je veux un nouveau mot de passe !"
+
+reset_password: 
+# request template
+    page_title: "Osteolia | (ré)initialisation de mot de passe"
+    title: "(ré)initialiser mon mot de passe..."
+    placeholder: "Saisissez ici l'email de votre compte"
+    blank: "Vous n'avez rien saisi semble-t'li..."
+    text: "Saisissez l'email de votre compte sur Osteolia, nous vous y enverrons un message 
+            avec un lien qui vous vous permettra de (ré)initialiser votre mot de passe en toute sécurité."
+    button: 'Hop !'
+# checj_email. template
+    email_sent: "L'email contenant le lien  pour (ré)initialiser votre mot de passe a bien été envoyé : le lien est valable pendant %expires_in% heure."
+    check_spams_or: "Si vous ne l'avez pas reçu, vérifiez votre dossier spams ou "
+    try_again: "ressayez."
+# reset template
+    actual: "Définir mon mot de passe !"
+    constraints: "Votre mot de passe doit faire au moins 8 caractères et comporter au moins un chiffre, une majuscule, une minuscule et un caractère spécial (!, ?, _, -, ...)"
+    tip_title: "Se choisir un bon mot de passe"
+    tip: "Pour définir un mot de passe fort, une bonne astuce consiste à prendre chaque premier caractère des mots d'une phrase donnée et les caractères spéciaux qui l'accompagnent."
+    tip2: "Ainsi la phrase \"Les frères Grimmm ont écrit Blanche-Neige & les sept nains!\" donnera le mot de passe LfGoéB-N&l7n!"
+    warning: "Evidemment, ne choisissez PAS cet exemple pour votre mot de passe ;)"
+    empty_fields: "Vous n'avez rien saisi... Ca ne marche pas comme ça..."
+    length_constrait: "Il doit faire au monis %limit% caractères"
+    password_placeholder: "Votre nouveau mot de passe..."
+    repeat_password_placeholder: "Répétez-le pour être sür(e)"
+    passwords_must_match: "Vos mots de passe doivent être identiques..."
+# email template
+    email_subject: "Votre demande de mot de passe"
+    email_content: 
+        greetings: "Bonjour,"
+        instruction: "Vous avez demandé la (ré)initialisation de votre mot de passe sur Osteolia. Pour définir votre mot de passe, cliquez sur le lien ci-dessous (ou copiez-collez le dans votre navigateur préféré)"
+        expiration_warning: "Attention: pour votre sécurité, ce lien n'est valable que " 
+        bye: "A très bientôt !"
+        tema: "L'équipe d'Osteolia"
+
+
 
 patient:
     all_patients:

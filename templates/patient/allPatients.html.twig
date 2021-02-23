@@ -30,9 +30,9 @@
 					{% for p in patients %} 
 					<tr>
 						<td scope="row">{{ p.id }}</td>
-						<td>{{ p.lastName | upper }}, {{ p.firstName }}</td>
+						<td><a class="text-osteolia" href="{{ path('patient/patient', {'id' : p.id})}}">{{ p.lastName | upper }}, {{ p.firstName }}</a></td>
 						<td>{{ p.currentAge['y'] }}</td>
-						<td>1</td>
+						<td>{{ p.consultations | length }}</td>
 						<td>15/02/2021</td>
 						<td>{{ p.phoneNumber }}</td>
 						<td>{{ p.email }}</td>

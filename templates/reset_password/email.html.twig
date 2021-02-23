@@ -1,0 +1,11 @@
+<p>{{ 'reset_password.email_content.title' | trans }}!</p>
+
+<p>{{ 'reset_password.email_content.instructions' | trans }}}</p>
+
+<a href="{{ url('app_reset_password', {token: resetToken.token}) }}">{{ url('app_reset_password', {token: resetToken.token}) }}</a>
+
+<p>{{ 'reset_password.email_content.expiration_warning'}} {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.</p>
+
+<p>{{ 'reset.password.email_content.bye' | trans }}</p>
+
+<p style="color:#ddd">{{ 'reset_password.email_content.team' | trans }}</p>
