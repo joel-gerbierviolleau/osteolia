@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}}{{ 'user.admin.all_users.page_title' | trans }}{% endblock %}
+
+{% block body %}
+
+ 	<main class="container-lg">
+	  	<div class="row pt-5">
+		    <h1 class="text-osteolia">{{ 'user.admin.all_users.content.title' | trans }}</h1>
+		    <p class="lead">
+		    	{{ 'user.admin.all_users.content.lead' | trans({'%nb_users%': users | length }) }}
+		    </p>
+	    </div>
+	    <div class="row">
+			<div class="col-12">
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th scope="col">Id</th>
+							<th scope="col">{{ 'user.admin.full_name' | trans }}</th>
+							<th scope="col">{{ 'user.admin.email' | trans }}</th>
+							<th scope="col">{{ 'user.admin.nb_patients' | trans }}</th>		
+							<th scope="col">{{ 'user.admin.actions' | trans }}</th>
+						</tr>
+					</thead>
+					<tbody>
+					{% for u in users %} 
+					<tr>
+						<td scope="row">{{ u.id }}</td>
+						<td><a class="text-osteolia" href="{{ path('user/user', {'id' : u.id})}}">{{ u.lastName | upper }}, {{ u.firstName }}</a></td>
+						<td>{{ u.email }}</td>
+						<td>{{ u.patients | length }}</td>
+						<td class="text-center">
+							<a href="{{ path('user/user', {'id' : u.id }) }}" class="btn btn-sm btn-osteolia me-2 mb-2"><i class="bi bi-eye me-2"></i>{{ 'user.admin.action.view' | trans }}</a>
+							<a href="{{ path('user/edit-user', {'id' : u.id }) }}" class="btn btn-sm btn-outline-osteolia me-2 mb-2"><i class="bi bi-pencil me-2"></i>{{ 'user.admin.action.edit' | trans }}</a>
+						</td>
+					</tr> 							
+					{% endfor %}
+					</tbody>
+				</table>
+  			</div>
+	    </div>
+    </main>
+
+
+{% endblock %}

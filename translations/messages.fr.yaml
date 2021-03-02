@@ -82,7 +82,7 @@ prospect:
         great_more_infos_please: "Top! On aura besoin de quelques infos complémentaires du coup. C'est facultatif bien entendu mais ça nous aide :)"
         phoneNumber: 
             label: 'Un N° de portable ?'
-            placeholder: "06 37 13 89 64"
+            placeholder: "06 12 34 56 78"
         school: 
             label: 'Dans quelle école avez-vous effectué votre formation ?'
             placeholder: "Collège Osteopathique de Bordeaux"
@@ -202,6 +202,131 @@ about:
                 content: "Responsable de publication : Joel Gerbier-Violleau"
                 hosting: "Ce site est hébergé par OVH SAS 2 rue Kellermann - 59100 Roubaix - France"
  
+user:
+    messages: 
+        successfully_created: "Utilisateur %firstName% %LastName% bien créé !"
+        successfully_suspended: "Utilisateur %firstName% %LastName% suspendu !"
+        successfully_deleted: "Utilisateur %firstName% %LastName% supprimé !"
+        successfully_updated_password: "Votre mot de passe a bien été mis à jour"
+    admin:     
+        full_nname: "NOM, Prénom :"
+        firstName: "Prénom : "
+        lastName: "NOM : "
+        email:  "email : "
+        address: "Adresse du cabinet"
+        addressLine1: "Adresse ligne 1 : "
+        addressLine2: "Adresse ligne 2 : "
+        zipcode: "Code postal : "
+        city: "Ville : "
+        phoneNumber: "N° de tel : "
+        website: "Site : "
+        isVerified: "email vérifié ?"
+        isSuspended: "Compte suspendu"
+        isDeleted: "Compte supprimé"
+        creationDtae: "Créé le"
+        lastUpdateDate: "Dernière mise à jour le"
+        suspensionDate: "Suspendu le"
+        deletionDate: "Supprimé le"
+        full_name: "NOM prénom"
+        nb_patients: "Nb patients"
+        actions: "Actions"
+        action: 
+            view: "En détails"
+            edit: "Mettre à jour"
+            suspend: "Suspendre"
+            delete: "Supprimer"
+        all_users: 
+            page_title: "Osteolia | Admin - tous les utilisateurs"
+            content:
+                title: "Tous les utilisateurs"
+                lead: "Actuellement, %nb_users% utilisateur(s)"
+        user_profile: 
+            page_title: "Osteolia | admin | %full_name%"
+            content:
+                title: "Profil de %full_name%"
+                lead: "%nb_patients% patients - %nb_consultations% - créé le %creation_date%"
+        new_user: 
+            page_title: "Osteolia | admin | nouveau compte"
+            content:
+                title: "Ajout d'un compte"
+                lead: "initialiser le mot de passe - l'envoyer par SMS"
+        edit_user: 
+            page_title: "Osteolia | admin | mise à jour du profil de %full_name%"
+            content:
+                title: "Mise à jour du profil de %full_name%"
+                lead: "%nb_patients% patients - %nb_consultations% consultations- créé le %creation_date%"
+    form: 
+        email: 
+            label: "L'email/identifiant du compte"
+            placeholder: "john.doe@some.where"
+        plainPassword:
+            label: "Un mot de passe"
+            placeholder: "**********"
+        firstName: 
+            label: "Votre prénom :"
+            placeholder: "John / Jane"
+        lastName: 
+            label: "Votre nom :"
+            placeholder: "Doe"
+        address: "L'adresse de votre cabinet :"
+        addressLine1: 
+            placeholder: "12 rue des vignes"
+        addressLine2: 
+            placeholder: "(un éventuel complément d'adresse)"
+        zipcode: 
+            placeholder: 72000
+        city: 
+            placeholder: "Le Mans"
+        phoneNumber: 
+            label: "Un N° où Osteolia peut vous joindre :"
+            placeholder: "06 12 34 56 78"
+        website: 
+            label: "Un site web qui vous présente à vos patients ?"
+            placeholder: "https://www.monsupersite.fr"
+        publicPhoneNumber: 
+            label: "Le N° que vous souhaitez voir apparaître sur vos factures patient :"
+            placeholder: "06 12 34 56 78"
+        publicEmail: 
+            label: "L'email que vous souhaitez voir apparaître sur vos factures patient :"
+        save: "Enregistrer"
+    my_profile:
+        page_title: "Osteolia | Mon profil"
+        content:
+            title: "Votre profil..."
+            lead: "(à vous !)"
+            to_access_osteolia: "Pour vous connecter à Osteolia..."
+            email: "Votre email (qui est aussi votre identifiant sur Osteolia) est "
+            password: "votre mot de passe  : "
+            password_encrypted: "****************"
+            identity: "A propos de vous...."
+            full_name: "Vous vous appelez "
+            professional_postal_addresss: "Votre cabinet est situé "
+            missing_professional_postal_addresss: "Vous n'avez pas encore indiqué d'adresse pour votre cabinet... 
+                Cela sera nécessaire pour éditer des notes d'honoraires"
+            how_to_get_in_touch: "Pour vous contacter, vous suivre..."
+            phoneNumber: "Vous êtes joignable au " 
+            missing_phoneNumber: "Vous n'avez pas encore indiquyé de N° de téléphone :("
+            missing_phoneNumber_why_bother: "Affiché sur vos notes d'honoriaires, cela sert à vos patients pour reprendre rendez-vous
+              et aussi pour nous pour vous contacter en cas de besoin (et uniquement pour ça! )."
+            website: "On vous retrouve sur internet à l'adresse suivante : "
+            missing_website: "Vous ne nous avez pas (encore) déclaré de de site web semble-t'il..."
+            missing_website_why_bother: "En nous communiquant votre site, nous l'ajoutons à vos notes d'honoriares, ce qui simplifie la vie 
+                à vos patients pour en savcoir plus sur vous et l'ostéopathie et pour revenir vous voir."
+            phoneNumber_disclaimer: "NB: pour ce qui nous concerne (Osteolia) ce numéro ne sera utilisé que par nous pour
+                 vous contacter à propos de votre compte - nous ne le communiquerons à aucun tiers."
+            public_informations: "Ce qui apparaît sur les notes d'honoraires que vous remettez à vos patients..."
+            actions:
+                update: "Modifier mes informations"
+                change_password: "Modifier"
+                save: "Enregistrer"
+                cancel: "Annuler"
+    edit_my_profile:
+        page_title: "Osteolia | Mise à jour de votre profil"
+        content:
+            title: "Mise à jour de votre profil"
+            lead: ""
+
+
 login_form:
     page_title: "Me connecter à Osteolia"
     title: "Je m'identifie"
@@ -250,14 +375,13 @@ reset_password:
         bye: "A très bientôt !"
         tema: "L'équipe d'Osteolia"
 
-
-
 patient:
     all_patients:
         page_title: "Osteolia - Tous mes patients"
         content:
-            title: "Osteolia - Tous mes patients"
+            title: "Tous mes patients"
             lead: "Une bien belle liste de %total_patients% patients."
+            lead_without_patients_yet: "Ha. Aucun patient pour l'instant ! Remédiez à cela tout de suite en cliquant sur le bouton ci-dessous."
             full_name: 'NOM Prénom'
             age: "Age"
             nb_consultations: "Nombre de consultations" 
@@ -276,7 +400,7 @@ patient:
         page_title: "Osteolia - Patient %patient_lastName% %patient_firstName%"
         content:
             title: "Patient %patient_lastName%, %patient_firstName%"
-            lead: "%nb_consultation(s) - dernière visite le %%last_consultation_date%"
+            lead: "%nb_consultations% consultation(s) - dernière visite le %last_consultation_date%"
             lead_first_consultation: "1ère consultation !"
             years: " ans"
             months: " mois" 

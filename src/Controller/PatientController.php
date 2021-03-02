@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use App\Entity\Patient;
 use App\Form\PatientType;
@@ -72,7 +73,6 @@ class PatientController extends AbstractController
 
     	return $this->render('patient/patient.html.twig', [
     		'patient' => $patient,
-    		'nb_consultations' => 0 //TODO virer ça qd les consultations seront implémentées
     	]);
 
     }

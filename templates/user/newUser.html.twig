@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}}{{ 'user.admin.new_user.page_title' | trans }}{% endblock %}
+
+{% block body %}
+
+ 	<main class="container-lg">
+	  	<div class="row py-5">
+		    <h1 class="text-osteolia">{{ 'user.admin.new_user.content.title' | trans }}</h1>
+		    <p class="lead">
+		    	{{ 'user.admin.new_user.content.lead' | trans }}
+		    </p>
+  			{% if not form.vars.valid %}
+  			<p class="alert alert-warning" role="alert">
+				{{ 'user.messages.form_has_errors' | trans }}
+			</p>
+			{% endif %}
+
+			<div class="col">
+			   <div class="card card-body">
+		  			{{ form_start(form, {'attr' : {'class' : ''}})  }}
+			   		<div class="row">
+						<div class="col-lg-6">
+							<div class="row">
+			  					<div class="col-lg-6 mb-3">
+				  					{{ form_label(form.firstName, 'user.form.firstName.label' | trans) }}
+				  					{{ form_widget(form.firstName, {'attr' : {'placeholder' : 'user.form.firstName.placeholder' | trans }}) }}
+				  				</div>
+								<div class="col-lg-6 mb-3">
+				  					{{ form_label(form.lastName, 'user.form.lastName.label' | trans) }}
+				  					{{ form_widget(form.lastName, {'attr' : {'placeholder' : 'user.form.lastName.placeholder' | trans }}) }}
+			  					</div>
+								<div class="col-lg-6 mb-3">
+				  					{{ form_label(form.email, 'user.form.email.label' | trans) }}
+				  					{{ form_widget(form.email, {'attr' : {'placeholder' : 'user.form.email.placeholder' | trans }}) }}
+			  					</div>
+			  					{% if user.id is empty %}
+								<div class="col-lg-6 mb-3">
+				  					{{ form_label(form.plainPassword, 'user.form.plainPassword.label' | trans) }}
+				  					{{ form_widget(form.plainPassword, {'attr' : {'placeholder' : 'user.form.plainPassword.placeholder' | trans }}) }}
+			  					</div>
+			  					{% endif %}
+				  			</div>
+			  			</div>
+		  			</div>
+	  				{{ form_widget(form._token) }}
+  					{{ form_widget(form.submit, {'attr' : {'class' : 'btn btn-osteolia col-lg-4 mb-2'}, 'label' : 'user.form.save' | trans }) }}
+
+					{{ form_end(form, {'render_rest' : false}) }}
+	  			</div>
+  			</div>
+	    </div>
+    </main>
+
+{% endblock %}

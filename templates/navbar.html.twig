@@ -39,8 +39,8 @@
                                 {{ 'navbar.admin.users.menu_title' | trans }}
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">{{ 'navbar.admin.users.add' | trans }}</a></li>
-                                    <li><a class="dropdown-item" href="#">{{ 'navbar.admin.users.manage' | trans }}<a></li>
+                                    <li><a class="dropdown-item" href="{{ path('user/add-user')}}">{{ 'navbar.admin.users.add' | trans }}</a></li>
+                                    <li><a class="dropdown-item" href="{{ path('user/all-users') }}">{{ 'navbar.admin.users.manage' | trans }}<a></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item" href="#">{{ 'navbar.admin.users.dashboard' | trans }}</a></li>
                                 </ul>
@@ -65,7 +65,7 @@
                                 {{ 'navbar.app.user.menu_title' | trans }}
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#"><i class="bi  bi-person-fill me-2"></i>{{ 'navbar.app.user.profile' | trans }}</a></li>
+                                    <li><a class="dropdown-item" href="{{ path('user/my-profile') }}"><i class="bi  bi-person-fill me-2"></i>{{ 'navbar.app.user.profile' | trans }}</a></li>
                                     <li><a class="dropdown-item" href="#"><i class="bi  bi-gear-wide-connected me-2"></i>{{ 'navbar.app.user.settings' | trans }}<a></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item" href="{{ path('app_logout') }}"><i class="bi  bi-box-arrow-left me-2"></i>{{ 'navbar.logout' | trans }}</a></li>

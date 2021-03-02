@@ -16,8 +16,8 @@
 	    		{% endif %}
 		    </h1>
 		    <p class="lead">
-		    	{% if nb_consultations > 0 %}
-			    	{{ 'patient.patient.content.lead' | trans({'%nb_consultations%' : 2, '%last_consultation_date%' : date() | date('d/M/Y') }) }}
+		    	{% if patient.consultations | length > 0 %}
+			    	{{ 'patient.patient.content.lead' | trans({'%nb_consultations%' : patient.consultations | length, '%last_consultation_date%' : patient.consultations|last.creationDate | date('d/m/Y') }) }}
 		    	{% else %}
 		    		{{ 'patient.patient.content.lead_first_consultation' | trans }}
 		    	{% endif %}

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'user.admin.user_profile.page_title' | trans({'%full_name%' : user.firstName ~ ' ' ~ user.lastName| upper }) }}{% endblock %}
+
+{% block body %}
+
+ 	<main class="container-lg">
+	  	<div class="row pt-5">
+		    <h1 class="text-osteolia">{{ 'user.admin.user_profile.content.title' | trans({'%full_name%' : user.firstName ~ ' ' ~ user.lastName| upper }) }}</h1>
+		    <p class="lead">
+		    	{{ 'user.admin.user_profile.content.lead' | trans({'%nb_patients%' : user.patients|length, '%nb_consultations%' : user.consultations | length, '%creation_date%' : date() | date('d/m/Y') }) }}
+		    </p>
+	    </div>
+	    <div class="row">
+			<div class="col-12 col-md-6">
+				<p><strong>{{ 'user.admin.firstName' | trans }}</strong>{{ user.firstName }}</p>
+				<p><strong>{{ 'user.admin.lastName' | trans }}</strong>{{ user.lastName }}</p>
+				<p><strong>{{ 'user.admin.email' | trans }}</strong>{{ user.email }}</p>
+				<p><strong>{{ 'user.admin.addressLine1' | trans }}</strong>{{ user.addressLine1 }}</p>
+				<p><strong>{{ 'user.admin.addressLine2' | trans }}</strong>{{ user.addressLine2 }}</p>
+				<p><strong>{{ 'user.admin.zipcode' | trans }}</strong>{{ user.zipcode }}</p>
+				<p><strong>{{ 'user.admin.city' | trans }}</strong>{{ user.city }}</p>
+				<p><strong>{{ 'user.admin.phoneNumber' | trans }}</strong>{{ user.phoneNumber }}</p>
+				<p><strong>{{ 'user.admin.website' | trans }}</strong>{{ user.website }}</p>
+				<a href="{{ path('user/edit-user', {'id' : user.id}) }}" class="btn btn-osteolia"><i class="bi bi-pencil me-2"></i>{{ 'user.admin.action.edit' | trans }}</a>
+			</div>
+		</div>
+	</main>
+
+{% endblock %}

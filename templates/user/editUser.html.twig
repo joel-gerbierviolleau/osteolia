@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}}{{ 'user.admin.edit_user.page_title' | trans({'%full_name%' : user.firstName ~ ' ' ~ user.lastName| upper }) }}{% endblock %}
+
+{% block body %}
+
+ 	<main class="container-lg">
+	  	<div class="row py-5">
+		    <h1 class="text-osteolia">{{ 'user.admin.edit_user.content.title' | trans({'%full_name%' : user.firstName ~ ' ' ~ user.lastName| upper }) }}</h1>
+		    <p class="lead">
+		    	{{ 'user.admin.edit_user.content.lead' | trans({'%nb_patients%' : user.patients|length, '%nb_consultations%' : user.consultations | length, '%creation_date%' : date() | date('d/m/Y') }) }}
+		    </p>
+  			{% if not form.vars.valid %}
+  			<p class="alert alert-warning" role="alert">
+				{{ 'user.messages.form_has_errors' | trans }}
+			</p>
+			{% endif %}
+
+			{{ include('user/userForm.html.twig') }}
+
+	    </div>
+    </main>
+
+{% endblock %}

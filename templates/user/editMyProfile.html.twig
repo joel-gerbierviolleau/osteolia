@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}}{{ 'user.edit_my_profile.page_title' | trans }}{% endblock %}
+
+{% block body %}
+
+ 	<main class="container-lg">
+	  	<div class="row py-5">
+		    <h1 class="text-osteolia">{{ 'user.edit_my_profile.content.title' | trans }}</h1>
+		    <p class="lead">
+		    	{{ 'user.edit_my_profile.content.lead' | trans }}
+		    </p>
+  			{% if not form.vars.valid %}
+  			<p class="alert alert-warning" role="alert">
+				{{ 'user.messages.form_has_errors' | trans }}
+			</p>
+			{% endif %}
+
+			{{ include('user/userForm.html.twig') }}
+
+	    </div>
+    </main>
+
+{% endblock %}

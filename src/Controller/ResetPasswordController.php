@@ -18,6 +18,7 @@ use SymfonyCasts\Bundle\ResetPassword\Controller\ResetPasswordControllerTrait;
 use SymfonyCasts\Bundle\ResetPassword\Exception\ResetPasswordExceptionInterface;
 use SymfonyCasts\Bundle\ResetPassword\ResetPasswordHelperInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/reset-password")
@@ -174,6 +175,44 @@ class ResetPasswordController extends AbstractController
 
         return $this->redirectToRoute('app_check_email');
     }
+
+    /**
+     * @Route("/my-profile/reset-password", name="reset_password_from_my_profile")
+     * @IsGranted("IS_AUTHENTICATED_FULLY")
+    */
+    public function resetPasswordFromMyProfile(Request $request, UserPasswordEncoderInterface $passwordEncoder, TranslatorInterface $translator) : Response
+    {
+
+        $user = $this->getUser();
+
+        $form = $this->createForm(ChangePasswordFormType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid())
+        {
+
+            // Encode the plain password, and set it.
+            $encodedPassword = $passwordEncoder->encodePassword(
+                $user,
+                $form->get('plainPassword')->getData()
+            );
+
+            $user->setPassword($encodedPassword);
+
+            $this->getDoctrine()->getManager()->flush();
+
+            $this->addFlash('success', $translator->trans('user.messages.successfully_updated_password'));
+
+            return $this->redirectToRoute('user/my-profile');
+
+        }
+
+        return $this->render('reset_password/reset.html.twig', [
+            'resetForm' => $form->createView(),
+        ]);
+
+    }
+
 
 
     /**

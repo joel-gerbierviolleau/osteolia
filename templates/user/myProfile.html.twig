@@ -1,0 +1,119 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'user.my_profile.page_title' | trans() }}{% endblock %}
+
+{% block body %}
+
+ 	<main class="container-lg">
+	  	<div class="row pt-5">
+		    <h1 class="text-osteolia">{{ 'user.my_profile.content.title' | trans }}</h1>
+		    <p class="lead">
+		    	{{ 'user.my_profile.content.lead' | trans() }}
+		    </p>
+	    </div>
+	    <div class="row mb-5">
+			<div class="col-md-6 pe-md-5">
+				<div class="row mb-4">
+					<h6 class="text-light-osteolia">{{ 'user.my_profile.content.to_access_osteolia' | trans }}</h6>
+					<div class="col-2 col-md-1">
+						<i class="bi bi-at me-3 text-osteolia"></i>
+					</div>
+					<div class="col-10 col-md-11 mb-2">
+						{{ 'user.my_profile.content.email.label' | trans }}<strong>{{ app.user.email }}</strong>
+					</div>
+					<div class="col-2 col-md-1">
+						<i class="bi bi-key me-3 text-osteolia"></i>
+					</div>
+					<div class="col-10 col-md-11 d-flex">
+						{{ 'user.my_profile.content.password' | trans }}{{ 'user.my_profile.content.password_encrypted' | trans }}
+						<a class="btn btn-sm btn-osteolia ms-auto" href="{{ path('reset_password_from_my_profile') }}"><i class="bi bi-pencil me-2"></i>{{ 'user.my_profile.content.actions.change_password' | trans }}</a>
+					</div>
+				</div>
+				<div class="row mb-3">
+					<h6 class="text-light-osteolia">{{ 'user.my_profile.content.identity' | trans }}</h6>
+					<div class="row mb-3">
+						<div class="col-2 col-md-1">
+							<i class="bi bi-person-fill text-osteolia"></i>
+						</div>
+						<div class="col-10 col-md-11">
+						{{ 'user.my_profile.content.full_name' | trans }}<strong>{{ app.user.firstName ~ ' ' ~ app.user.lastName | upper }}</strong>
+						</div>
+					</div>
+					<div class="row mb-3">
+						<div class="col-2 col-md-1">
+							<i class="bi bi-building text-osteolia"></i>
+						</div>
+						<div class="col-10 col-md-11">
+							{% if app.user.addressLine1 is empty and app.user.addressLine2 is empty and app.user.zipcode is empty and app.user.city is empty %}
+								<span class="text-danger">{{ 'user.my_profile.content.missing_professional_postal_addresss' | trans }}</span>
+							{% else %}
+								<span class="mb-2">{{ 'user.my_profile.content.professional_postal_addresss' | trans }}</br></span>
+								<strong>{% if app.user.AddressLine1 is not empty %} {{ app.user.addressLine1 }}</br>{% endif %}
+								{% if app.user.AddressLine2 is not empty %} {{ app.user.addressLine2 }}</br>{% endif %}
+								{% if app.user.zipcode is not empty and app.user.zipcode is not empty %} {{ app.user.zipCode  ~ ' ' ~ app.user.city }} {% endif %}</strong>
+							{% endif %}
+						</div>
+					</div>
+					<div class="row mb-3">
+	  					<h6 class="text-light-osteolia">{{ 'user.my_profile.content.how_to_get_in_touch' | trans }}</h6>
+						<div class="col-2 col-md-1">
+							<i class="bi bi-phone text-osteolia"></i>
+						</div>
+						<div class="col-10 col-md-11 mb-3">
+						{% if app.user.phoneNumber is empty %}
+							<span class="text-danger">{{ 'user.my_profile.content.missing_phoneNumber' | trans }}</span></br>
+							<small>{{ 'user.my_profile.content.missing_phoneNumber_why_bother' | trans }}</small>
+						{% else %}
+							{{ 'user.my_profile.content.phoneNumber' | trans }}<strong>{{ app.user.phoneNumber }}</strong></br>
+							<small>{{ 'user.my_profile.content.phoneNumber_disclaimer' | trans }}</small>
+						{% endif %}
+						</div>
+						<div class="col-2 col-md-1">
+							<i class="bi bi-globe2 text-osteolia"></i>
+						</div>
+						<div class="col-10 col-md-11">
+						{% if app.user.website is empty %}
+							<span class="text-danger">{{ 'user.my_profile.content.missing_website' | trans }}</span></br>
+							<small>{{ 'user.my_profile.content.missing_website_why_bother' | trans }}</small>
+						{% else %}
+							{{ 'user.my_profile.content.website' | trans }}<strong>{{ app.user.website }}</strong></br>
+						{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 ps-md-5">
+				<h6 class="text-light-osteolia">{{ 'user.my_profile.content.public_informations' | trans }}</h6>
+	    		<div class="card mb-3">
+		       		<div class="card-body">
+		       			<p>
+			       			<strong>{{ app.user.firstName ~ ' ' ~ app.user.lastName | upper }}</strong>
+						</p>
+						<p>
+							{% if app.user.addressLine1 is empty and app.user.addressLine2 is empty and app.user.zipcode is empty and app.user.city is empty %}
+								<span class="text-danger">{{ 'user.my_profile.content.missing_professional_postal_addresss' | trans }}</span>
+							{% else %}
+								{% if app.user.AddressLine1 is not empty %} {{ app.user.addressLine1 }}</br>{% endif %}
+								{% if app.user.AddressLine2 is not empty %} {{ app.user.addressLine2 }}</br>{% endif %}
+								{% if app.user.zipcode is not empty and app.user.zipcode is not empty %} {{ app.user.zipCode  ~ ' ' ~ app.user.city }} {% endif %}
+							{% endif %}
+						</p>
+						<p>
+						{% if app.user.phoneNumber is not empty %}
+							<i class="bi bi-phone me-3 text-osteolia"></i> {{ app.user.phoneNumber }}</br>
+						{% endif %}
+							<i class="bi bi-at me-3 text-osteolia"></i> {{ app.user.email }}</br>
+						{% if app.user.website is not empty %}
+							<i class="bi bi-globe2 me-3 text-osteolia"></i> {{ app.user.website }}</br>
+						{% endif %}
+						</p>
+	       			</div>
+       			</div>       			
+			</div>
+			<div class="col">
+				<a href="{{ path('user/edit-my-profile') }}" class="btn btn-osteolia col-8 col-md-3"><i class="bi bi-pencil me-2"></i>{{ 'user.my_profile.content.actions.update' | trans }}</a>
+			</div>
+		</div>
+	</main>
+
+{% endblock %}

@@ -8,12 +8,22 @@
 	  	<div class="row pt-5">
 		    <h1 class="text-osteolia">{{ 'patient.all_patients.content.title' | trans }}</h1>
 		    <p class="lead">
+		    {% if patients | length > 0 %}
 		    	{{ 'patient.all_patients.content.lead' | trans({'%total_patients%': patients | length }) }}
 		    </p>
+
+		    {% else %}
+		    	{{ 'patient.all_patients.content.lead_without_patients_yet' | trans }}
+		    </p>
+			<div class="col">
+				<a href="{{ path('patient/new-patient') }}" class="btn btn-osteolia col-md-6 mt-3"><i class="bi bi-person-plus me-2"></i>{{ 'home.pratician.add_patient' | trans }}</a>				
+			</div>
+		    {% endif %}
 	    </div>
 	    <div class="row">
 			<div class="col-12">
-				<table class="table table-striped table-hover">
+				{# ------------------ DISPLAY DETAILED TABLE ON LARGE SCREENS -------------- #}
+				<table class="table table-striped table-hover d-none d-xl-block">
 					<thead>
 						<tr>
 							<th scope="col">Id</th>
@@ -39,6 +49,25 @@
 						<td class="text-center">
 							<a href="{{ path('patient/patient', {'id' : p.id }) }}" class="btn btn-sm btn-osteolia mb-2 me-2"><i class="bi bi-eye me-2"></i>{{ 'patient.all_patients.content.action.view' | trans }}</a>
 							<a href="{{ path('patient/edit-patient', {'id' : p.id }) }}" class="btn btn-sm btn-outline-osteolia me-2"><i class="bi bi-pencil me-2"></i>{{ 'patient.all_patients.content.action.update' | trans }}</a></td>
+					</tr> 							
+					{% endfor %}
+					</tbody>
+				</table>
+				{# ------------------ DISPLAY LESS-DETAILED TABLE ON SMALLER SCREENS & MOBILE -------------- #}
+				<table class="table table-striped table-hover d-xl-none">
+					<thead>
+						<tr>
+							<th scope="col">{{ 'patient.all_patients.content.full_name' | trans }}</th>									
+							<th scope="col">{{ 'patient.all_patients.content.last_consultation_date' | trans }}</th>
+							<th scope="col">{{ 'patient.all_patients.content.phone_number' | trans }}</th>
+						</tr>
+					</thead>
+					<tbody>
+					{% for p in patients %} 
+					<tr>
+						<td><a class="text-osteolia" href="{{ path('patient/patient', {'id' : p.id})}}">{{ p.lastName | upper }}, {{ p.firstName }}</a></td>
+						<td>15/02/2021</td>
+						<td>{{ p.phoneNumber }}</td>
 					</tr> 							
 					{% endfor %}
 					</tbody>

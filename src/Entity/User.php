@@ -6,10 +6,12 @@ use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
  */
 class User implements UserInterface
 {
@@ -61,11 +63,72 @@ class User implements UserInterface
      */
     private $consultations;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isVerified = false;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $addressLine1;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $addressLine2;
+
+    /**
+     * @ORM\Column(type="string", length=5, nullable=true)
+     */
+    private $zipcode;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $city;
+
+    /**
+     * @ORM\Column(type="string", length=20, nullable=true)
+     */
+    private $phoneNumber;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $creationDate;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $lastUpdateDate;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $suspensionDate;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $deletionDate;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $website;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $hasWhatsapp;
+
     public function __construct()
     {
         $this->createdOnBehalfOf = new ArrayCollection();
         $this->patientsCreatedForMe = new ArrayCollection();
         $this->consultations = new ArrayCollection();
+        $this->creationDate = new \Datetime();
     }
 
     public function getId(): ?int
@@ -256,6 +319,150 @@ class User implements UserInterface
                 $consultation->setCreatedBy(null);
             }
         }
+
+        return $this;
+    }
+
+    public function isVerified(): bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setIsVerified(bool $isVerified): self
+    {
+        $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    public function getAddressLine1(): ?string
+    {
+        return $this->addressLine1;
+    }
+
+    public function setAddressLine1(?string $addressLine1): self
+    {
+        $this->addressLine1 = $addressLine1;
+
+        return $this;
+    }
+
+    public function getAddressLine2(): ?string
+    {
+        return $this->addressLine2;
+    }
+
+    public function setAddressLine2(?string $addressLine2): self
+    {
+        $this->addressLine2 = $addressLine2;
+
+        return $this;
+    }
+
+    public function getZipcode(): ?string
+    {
+        return $this->zipcode;
+    }
+
+    public function setZipcode(?string $zipcode): self
+    {
+        $this->zipcode = $zipcode;
+
+        return $this;
+    }
+
+    public function getCity(): ?string
+    {
+        return $this->city;
+    }
+
+    public function setCity(?string $city): self
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    public function getPhoneNumber(): ?string
+    {
+        return $this->phoneNumber;
+    }
+
+    public function setPhoneNumber(?string $phoneNumber): self
+    {
+        $this->phoneNumber = $phoneNumber;
+
+        return $this;
+    }
+
+    public function getCreationDate(): ?\DateTimeInterface
+    {
+        return $this->creationDate;
+    }
+
+    public function setCreationDate(\DateTimeInterface $creationDate): self
+    {
+        $this->creationDate = $creationDate;
+
+        return $this;
+    }
+
+    public function getLastUpdateDate(): ?\DateTimeInterface
+    {
+        return $this->lastUpdateDate;
+    }
+
+    public function setLastUpdateDate(?\DateTimeInterface $lastUpdateDate): self
+    {
+        $this->lastUpdateDate = $lastUpdateDate;
+
+        return $this;
+    }
+
+    public function getSuspensionDate(): ?\DateTimeInterface
+    {
+        return $this->suspensionDate;
+    }
+
+    public function setSuspensionDate(?\DateTimeInterface $suspensionDate): self
+    {
+        $this->suspensionDate = $suspensionDate;
+
+        return $this;
+    }
+
+    public function getDeletionDate(): ?\DateTimeInterface
+    {
+        return $this->deletionDate;
+    }
+
+    public function setDeletionDate(?\DateTimeInterface $deletionDate): self
+    {
+        $this->deletionDate = $deletionDate;
+
+        return $this;
+    }
+
+    public function getWebsite(): ?string
+    {
+        return $this->website;
+    }
+
+    public function setWebsite(?string $website): self
+    {
+        $this->website = $website;
+
+        return $this;
+    }
+
+    public function getHasWhatsapp(): ?bool
+    {
+        return $this->hasWhatsapp;
+    }
+
+    public function setHasWhatsapp(?bool $hasWhatsapp): self
+    {
+        $this->hasWhatsapp = $hasWhatsapp;
 
         return $this;
     }

@@ -1,0 +1,64 @@
+			<div class="col">
+			   <div class="card card-body">
+		  			{{ form_start(form, {'attr' : {'class' : ''}})  }}
+			   		<div class="row">
+						<div class="col-lg-6">
+							<div class="row">
+			  					{% if form.email is defined %}
+								<div class="col-lg-6 mb-3">
+				  					{{ form_label(form.email, 'user.form.email.label' | trans) }}
+				  					{{ form_widget(form.email, {'attr' : {'placeholder' : 'user.form.email.placeholder' | trans }}) }}
+			  					</div>
+			  					{% endif %}
+			  					{% if form.password is defined %}
+								<div class="col-lg-6 mb-3">
+				  					{{ form_label(form.plainPassword, 'user.form.plainPassword.label' | trans) }}
+				  					{{ form_widget(form.plainPassword, {'attr' : {'placeholder' : 'user.form.plainPassword.placeholder' | trans }}) }}
+			  					</div>
+			  					{% endif %}
+
+			  					<h6 class="text-light-osteolia">{{ 'user.my_profile.content.identity' | trans }}</h6>
+			  					<div class="col-lg-6 mb-3">
+				  					{{ form_label(form.firstName, 'user.form.firstName.label' | trans) }}
+				  					{{ form_widget(form.firstName, {'attr' : {'placeholder' : 'user.form.firstName.placeholder' | trans }}) }}
+				  				</div>
+								<div class="col-lg-6 mb-3">
+				  					{{ form_label(form.lastName, 'user.form.lastName.label' | trans) }}
+				  					{{ form_widget(form.lastName, {'attr' : {'placeholder' : 'user.form.lastName.placeholder' | trans }}) }}
+			  					</div>
+			  					<div class="col-12 mb-3">
+					  				<label class="form-label">{{ 'user.form.address' | trans }}</label>
+			  						{{ form_widget(form.addressLine1, {'attr' : {'class' : 'mb-2', 'placeholder' : 'user.form.addressLine1.placeholder' | trans }}) }}
+			  						{{ form_widget(form.addressLine2, {'attr' : {'class' : 'mb-2', 'placeholder' : 'user.form.addressLine2.placeholder' | trans }}) }}
+									<div class="row">	
+										<div class="col-lg-3 mb-2">  					
+					  						{{ form_widget(form.zipcode, {'attr' : {'placeholder' : 'user.form.zipcode.placeholder' | trans }}) }}
+						  				</div>
+										<div class="col-lg-9">  					
+					  						{{ form_widget(form.city, {'attr' : {'class' : 'col-md-8 mb-2', 'placeholder' : 'user.form.city.placeholder' | trans }}) }}
+					  					</div>
+					  				</div>
+			  					</div>
+			  					<h6 class="text-light-osteolia">{{ 'user.my_profile.content.how_to_get_in_touch' | trans }}</h6>
+								<div class="col-12 mb-3">
+									<div class="col-lg-8">	
+					  					{{ form_label(form.phoneNumber, 'user.form.phoneNumber.label' | trans) }}
+					  					{{ form_widget(form.phoneNumber, {'attr' : {'placeholder' : 'user.form.phoneNumber.placeholder' | trans}}) }}
+									</div>
+			  					</div>			  					
+								<div class="col-12 mb-3">
+				  					{{ form_label(form.website, 'user.form.website.label' | trans) }}
+				  					{{ form_widget(form.website, {'attr' : {'placeholder' : 'user.form.website.placeholder' | trans}}) }}
+			  					</div>			  					
+				  			</div>
+			  			</div>
+						<div class="col-lg-6">
+
+						</div>
+		  			</div>
+	  				{{ form_widget(form._token) }}
+  					{{ form_widget(form.submit, {'attr' : {'class' : 'btn btn-osteolia col-lg-4 mb-2'}, 'label' : 'user.form.save' | trans }) }}
+
+					{{ form_end(form, {'render_rest' : false}) }}
+	  			</div>
+  			</div>
