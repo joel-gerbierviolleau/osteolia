@@ -1,5 +1,6 @@
 app:
     name: "Osteolia"
+    version: "0.3"
 
 navbar: 
     public:
@@ -97,6 +98,11 @@ prospect:
         edited: "Le Prospect a bien été mis à jour !"
         soft_deleted: "Le prospect a bien été supprimé (logiquement)."
         hard_deleted: "Le prospect a bien été définitivement effacé de la abse de données."
+    see_you_soon:
+        page_title: "Osteolia | A très bientôt !"
+        content:
+            title: "A très bientôt !"
+            lead: "Nous vous ferons signe au fur et à mesure de l'avancée des trvaux :) Promis."
     admin: 
         properties: 
             fullName: "NOM Prénom"
@@ -325,7 +331,6 @@ user:
         content:
             title: "Mise à jour de votre profil"
             lead: ""
-
 
 login_form:
     page_title: "Me connecter à Osteolia"

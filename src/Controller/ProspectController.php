@@ -16,7 +16,7 @@ class ProspectController extends AbstractController
 
 
     /**
-     * @Route("/i-am-interested", name="/i-am-interested")
+     * @Route("/i-am-interested", name="i_am_interested")
      */
     public function newProspect(Request $request, TranslatorInterface $translator): Response
     {        
@@ -40,7 +40,7 @@ class ProspectController extends AbstractController
                 $this->addFlash('notice', $translator->trans('prospect.successfully.saved_and_willing_to_help'));
             }
 
-            return $this->redirectToRoute('/see-you-soon');
+            return $this->redirectToRoute('see_you_soon');
 
         } 
 
@@ -50,7 +50,7 @@ class ProspectController extends AbstractController
     }
 
     /**
-     * @Route("/see-you-soon", name="/see-you-soon")
+     * @Route("/see-you-soon", name="see_you_soon")
      */
     public function seeYouSoon(): Response
     {
