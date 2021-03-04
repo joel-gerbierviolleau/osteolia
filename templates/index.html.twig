@@ -48,6 +48,14 @@
      			<div class="row">
      				<p>{{ 'home.admin.registered_prospects'| trans( {'%total_prospects%' : allProspects|length} ) }}</p>
      			</div>
+       			<div class="row">
+     				<div class="col-">
+     					<a href="{{ path('test_mailer')}}" class="btn btn-osteolia">test mailer</a>
+     				</div>
+     			</div>
+     			<div class="my-3">
+	     			{{ dump(app.flashes) }}
+	     		</div>.   
             {% endif %}
 
             {% if is_granted('ROLE_USER') and not is_granted('ROLE_ADMIN') %}

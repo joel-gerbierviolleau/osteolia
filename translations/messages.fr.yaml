@@ -374,11 +374,13 @@ reset_password:
 # email template
     email_subject: "Votre demande de mot de passe"
     email_content: 
-        greetings: "Bonjour,"
-        instruction: "Vous avez demandé la (ré)initialisation de votre mot de passe sur Osteolia. Pour définir votre mot de passe, cliquez sur le lien ci-dessous (ou copiez-collez le dans votre navigateur préféré)"
+        title: ""
+        greetings: "Bonjour "
+        instructions: "Vous avez demandé la (ré)initialisation de votre mot de passe sur Osteolia. Pour définir votre mot de passe, cliquez sur le lien ci-dessous (ou copiez-collez le dans votre navigateur préféré)"
         expiration_warning: "Attention: pour votre sécurité, ce lien n'est valable que " 
         bye: "A très bientôt !"
-        tema: "L'équipe d'Osteolia"
+        security_notice: "Si vous n'êtes pas à l'origine de cette demande, ignorez ce message, ne cliquez pas sur le clien et contactez-nous directement via le site."
+        team: "L'équipe d'Osteolia"
 
 patient:
     all_patients:
