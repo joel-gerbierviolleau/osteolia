@@ -76,9 +76,9 @@ class HomeController extends AbstractController
 
     }
 
-    /**
+    /*
      * @Route("/test-mailer", name="test_mailer")
-     */
+     *
     public function testMailer(Request $request, MailerInterface $mailer, TranslatorInterface $translator): Response
     {
 
@@ -105,6 +105,6 @@ class HomeController extends AbstractController
         return $this->redirectToRoute('home');
 
     }
-
+ */
 
 }
