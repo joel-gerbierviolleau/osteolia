@@ -45,7 +45,7 @@ class HomeController extends AbstractController
                 $this->addFlash('notice', $translator->trans('prospect.successfully.saved_and_willing_to_help'));
             }
 
-    		return $this->redirectToRoute('/see-you-soon');
+    		return $this->redirectToRoute('see_you_soon');
 
     	} 
 
