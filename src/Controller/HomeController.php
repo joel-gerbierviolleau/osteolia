@@ -102,7 +102,6 @@ class HomeController extends AbstractController
 //            $this->addFlash('error', $e->getMessage() );
 //        };
 
-
         return $this->redirectToRoute('home');
 
     }
