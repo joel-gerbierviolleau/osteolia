@@ -1,6 +1,6 @@
 app:
     name: "Osteolia"
-    version: "0.9"
+    version: "0.10"
 
 navbar: 
     public:
@@ -54,12 +54,15 @@ public_home:
     cookies_notification_2:  " pour en savoir plus."
 
 home:
+    page_title: "Osteolia | Accueil"
     good_day: "Bonjour "
     good_evening: "Bonsoir "
     current_time_is: "Il est actuellement "
     admin:
         registered_prospects: "Nous avons actuellement %total_prospects% prospects enregistrés !"
-    pratician:
+    user:
+        awesome_day: "Une bien belle journée ! %nb_consultations% consultations aujourd'hui."
+        what_to_do: "Que voulez-vous faire ?"
         add_patient: "Ajouter un nouveau patient"
         search_patient: "Rechercher un patient avec son nom..."
         search: "Go !"

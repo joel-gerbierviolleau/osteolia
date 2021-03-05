@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'home.page_title' | trans }}{% endblock %}
+
+{% block body %}
+
+ 	<main class="container-lg">
+    	<div class="row py-5">
+            <div class="col">
+				<h1 class="text-osteolia">{% if date("Europe/Paris")|date('H', "Europe/Paris") > 18 or date("Europe/Paris")|date('H', "Europe/Paris") < 4 %}{{ 'home.good_evening' | trans }}{% else %}{{ 'home.good_day' | trans }}{% endif %}{{ app.user.firstName }}</h1>
+			    <p class="lead">{{ 'home.current_time_is' | trans }}{{ date()|date('H:i', "Europe/Paris") }}</p>
+		    </div>
+ 			<div class="row">
+ 				<p>{{ 'home.admin.registered_prospects'| trans( {'%total_prospects%' : allProspects|length} ) }}</p>
+ 			</div>
+		</div>
+	</main>
+
+{% endblock %}

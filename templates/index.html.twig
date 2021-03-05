@@ -10,7 +10,6 @@
 		  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 		</div>
 	  	<div class="row py-5">
-  		{% if not is_granted('IS_AUTHENTICATED_FULLY') %}
 	  		<div class="col">
 			    <h1 class="text-osteolia">{{ 'public_home.welcome_title' | trans }}</h1>
 			    <p class="lead">{{ 'public_home.welcome_statement' | trans }}
@@ -38,86 +37,6 @@
 			   		{# { render(controller('App\\Controller\\ProspectController::newProspect')) } #}	
 			   </div>
 			</div>
-		{% else %}
-            <div class="col">
-				<h3 class="text-osteolia">{% if date("Europe/Paris")|date('H', "Europe/Paris") > 18 or date("Europe/Paris")|date('H', "Europe/Paris") < 4 %}{{ 'home.good_evening' | trans }}{% else %}{{ 'home.good_day' | trans }}{% endif %}{{ app.user.firstName }}</h3>
-			    <p class="lead">{{ 'home.current_time_is' | trans }}{{ date()|date('h:i', "Europe/Paris") }}
-            </div>
-
-            {% if is_granted('ROLE_ADMIN') %}
-     			<div class="row">
-     				<p>{{ 'home.admin.registered_prospects'| trans( {'%total_prospects%' : allProspects|length} ) }}</p>
-     			</div>
-       			<div class="row">
-     				<div class="col-">
-     					<a href="{# { path('test_mailer') } #}" class="btn btn-osteolia">test mailer</a>
-     				</div>
-     			</div>
-     			<div class="my-3">
-	     			{{ dump(app.flashes) }}
-	     		</div>.   
-            {% endif %}
-
-            {% if is_granted('ROLE_USER') and not is_granted('ROLE_ADMIN') %}
-            	<div class="row pb-5">
-            		<p>
-            		Vous avez bien travaillé aujourd'hui : 4 nouveaux patients et 9 consultations ! 
-            		</p>
-            	</div>
-     			<div class="row">
-					<div class="col-md-6">
-	     				<h5 class="text-light-osteolia mb-3">Que voulez-vous faire ?</h5>
-	     				<p>
-							<a href="{{ path('patient/new-patient') }}" class="btn btn-osteolia col-md-6"><i class="bi bi-person-plus me-2"></i>{{ 'home.pratician.add_patient' | trans }}</a>
-						</p>
-						<p>
-							<form class="">
-								<div class="input-group">
-									<input class="form-control" type="search" placeholder="{{ 'home.pratician.search_patient'| trans }}" aria-label="{{ 'home.pratician.search_patient'| trans }}">
-									<button class="btn btn-outline-osteolia ms-2" type="submit">{{ 'home.pratician.search'| trans }}</button>
-								</div>
-							</form>
-						</p>
-					</div>
-					<div class="col-md-6 ps-md-4 pt-md-0 pt-3">
-						<h5 class="text-light-osteolia">Vos dernières consultations</h5>
-						<div class="col px-md-4">
-							<div class="card  mb-2">
-								<div class="card-body">
-									<h5 class="card-title">Pat le patient fidèle</h5>
-									<h6 class="card-subtitle mb-2">Consultaion du 10 fev 2021 - 16h02</h6>
-									<p class="card-text">Voici un court résumé de l'anamnèse saisie lors de la consultation, un peu plus de détails peut être cons... <a href="#">plus de détails sur cette consultation</a></p>
-									<a href="#" class="btn btn-osteolia me-2 mb-md-0 mb-2"><i class="bi bi-person me-2">Voir le patient</i></a>
-									<a href="#" class="btn btn-outline-osteolia">Voir la consultation <i class="bi bi-clipboard me-2"></i></a>
-								</div>
-							</div> 
-							<div class="card mb-2">
-								<div class="card-header alert-success">
-									Nouveau patient
-								</div>
-								<div class="card-body">
-									<h5 class="card-title">Pam la nouvelle patiente</h5>
-									<h6 class="card-subtitle mb-2">Consultaion du 10 fev 2021 - 17h12</h6>
-									<p class="card-text">Voici un court résumé de l'anamnèse saisie lors de la consultation, un peu plus de détails peut être cons... <a href="#">plus de détails sur cette consultation</a></p>
-									<a href="#" class="btn btn-osteolia me-2 mb-md-0 mb-2"><i class="bi bi-person me-2">Voir le patient</i></a>
-									<a href="#" class="btn btn-outline-osteolia">Voir la consultation <i class="bi bi-clipboard me-2"></i></a>
-								</div>
-							</div> 
-							<div class="card">
-								<div class="card-body">
-									<h5 class="card-title">Peter le patient occasionnel</h5>
-									<h6 class="card-subtitle mb-2">Consultaion du 10 fev 2021 - 14h35</h6>
-									<p class="card-text">Voici un court résumé de l'anamnèse saisie lors de la consultation, un peu plus de détails peut être cons... <a href="#">plus de détails sur cette consultation</a></p>
-									<a href="#" class="btn btn-osteolia me-2 mb-md-0 mb-2"><i class="bi bi-person me-2">Voir le patient</i></a>
-									<a href="#" class="btn btn-outline-osteolia">Voir la consultation <i class="bi bi-clipboard me-2"></i></a>
-								</div>
-							</div>
-						</div> 
-					</div>
-     			</div>
-            {% endif %}
-
-         {% endif %}
 	    </div>
    </main>
 

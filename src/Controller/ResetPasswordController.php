@@ -214,19 +214,5 @@ class ResetPasswordController extends AbstractController
         ]);
 
     }
-    
-
-    /**
-     * @Route("/test-template", name="test_template")
-    */
-    public function testTemplate(Request $request)
-    {
-        $form = $this->createForm(ChangePasswordFormType::class);
-        $form->handleRequest($request);
-        return $this->render('reset_password/reset.html.twig', [
-            'resetForm' => $form->createView(),
-        ]);
-    }
-
 
 }

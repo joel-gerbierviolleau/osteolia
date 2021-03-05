@@ -9,6 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use App\Entity\Prospect;
 use App\Form\ProspectType;
+use App\Entity\Consultation;
 
 
 class HomeController extends AbstractController
@@ -19,11 +20,19 @@ class HomeController extends AbstractController
     public function index(Request $request, TranslatorInterface $translator): Response
     {        
 
-    	$prospect = new Prospect();
         $em = $this->getDoctrine()->getManager();
 
-        $allProspects = $em->getRepository(Prospect::class)->findAll();
+        if ($this->isGranted('IS_AUTHENTICATED_FULLY') && $this->isGranted('ROLE_ADMIN') === false) 
+        {
+           return $this->userHomePage($request, $translator);
+        }
 
+        if ($this->isGranted('ROLE_ADMIN'))
+        {
+           return $this->adminHomePage($request, $translator);
+        }
+
+    	$prospect = new Prospect();
     	$form = $this->createForm(ProspectType::class, $prospect);
     	$form->handleRequest($request);
 
@@ -47,8 +56,8 @@ class HomeController extends AbstractController
         return $this->render('index.html.twig', [
             'form' => $form->createView(),
             'prospect' => $prospect,
-            'allProspects' => $allProspects,
         ]);
+
     }
 
     /**
@@ -68,6 +77,30 @@ class HomeController extends AbstractController
     {
 
         return $this->render('about.html.twig');
+
+    }
+
+    private function userHomePage(Request $request, TranslatorInterface $translator): Response
+    {
+
+            $em = $this->getDoctrine()->getManager();
+            $consultations = $em->getRepository(Consultation::class)->findAll();
+
+            return $this->render('home/homeUser.html.twig', [
+                'consultations' => $consultations,
+            ]);
+
+    }
+
+    private function adminHomePage(Request $request, TranslatorInterface $translator): Response
+    {
+
+            $em = $this->getDoctrine()->getManager();
+            $allProspects = $em->getRepository(Prospect::class)->findAll();
+
+            return $this->render('home/homeAdmin.html.twig', [
+                'allProspects' => $allProspects
+            ]);
 
     }
 
