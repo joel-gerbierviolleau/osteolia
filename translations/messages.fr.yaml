@@ -66,6 +66,12 @@ home:
         add_patient: "Ajouter un nouveau patient"
         search_patient: "Rechercher un patient avec son nom..."
         search: "Go !"
+        new_patient: "Nouveau patient"
+        last_5_consultations: "Vos cinq dernières consultations"
+        consultation_date: "Consultation du"
+        more_details: "Plus de détails..."
+        no_consultations°_yet: "Mais comme c'est dommage. Aucune consultation pour l'instant :/"
+        thats_gonna_change: "CA VA CHANGER !!"
 
 prospect:
     subscription_form:

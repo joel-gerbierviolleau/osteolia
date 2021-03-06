@@ -5,7 +5,7 @@
 {% block body %}
 
  	<main class="container-lg">
-	  	<div class="row pt-5">
+	  	<div class="row py-5">
 		    <h1 class="text-osteolia">{{ 'patient.all_patients.content.title' | trans }}</h1>
 		    <p class="lead">
 		    {% if patients | length > 0 %}
@@ -19,6 +19,9 @@
 				<a href="{{ path('patient/new-patient') }}" class="btn btn-osteolia col-md-6 mt-3"><i class="bi bi-person-plus me-2"></i>{{ 'home.pratician.add_patient' | trans }}</a>				
 			</div>
 		    {% endif %}
+			<div class="col">
+				<a href="{{ path('patient/new-patient') }}" class="btn btn-osteolia"><i class="bi bi-person-plus me-2"></i>{{ 'home.user.add_patient' | trans }}</a>
+			</div>
 	    </div>
 	    <div class="row">
 			<div class="col-12">

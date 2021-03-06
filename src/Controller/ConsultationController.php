@@ -97,10 +97,10 @@ class ConsultationController extends AbstractController
     }
 
     /**
-     * @Route("/consultation-{id<\d+>}", name="patient/view-consultation")
+     * @Route("/consultation-{id<\d+>}", name="consultation/view-consultation")
      */
 
-    public function viewConsultation(Request $request, Patient $patient, Consultation $consultation): Response
+    public function viewConsultation(Request $request, Consultation $consultation): Response
     {
     	return $this>render ('consultation/viewConsultation.html.twig', [
     		'consultation' => $consultation,

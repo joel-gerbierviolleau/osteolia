@@ -13,27 +13,27 @@
 									<div class="col-2 col-md-1">
 										<a class="text-osteolia" href="{{ path('consultation/edit-consultation', {'id' : c.id}) }}"><i class="bi bi-pencil-square text-osteolia"></i></a>
 									</div>					
-									<h6 class="card-subtitle mb-2 text-muted">{{ 'consultation.view_consultation.content.anamnesia' | trans }}</h6>
+									<h6 class="card-subtitle mb-2 text-light-osteolia">{{ 'consultation.view_consultation.content.anamnesia' | trans }}</h6>
 				       				<p>
 				       				{% if c.anamnesia is not empty %}
-				       					{{ c.anamnesia }}
+				       					{{ c.anamnesia | nl2br }}
 				       				{% else %}
 				       					{{ 'consultation.view_consultation.missing_anamnesia' | trans }}
 				       				{% endif %}
 				       				</p>
-				       				<h6 class="card-subtitle mb-2 text-muted">{{ 'consultation.view_consultation.content.procedures' | trans }}</h6>		
+				       				<h6 class="card-subtitle mb-2 text-light-osteolia">{{ 'consultation.view_consultation.content.procedures' | trans }}</h6>		
 				       				<p>
 				       				{% if c.procedures is not empty %}
-				       					{{ c.procedures }}
+				       					{{ c.procedures | nl2br}}
 				       				{% else %}
 				       					{{ 'consultation.view_consultation.missing_procedures' | trans }}
 				       				{% endif %}
 				       				</p>
 
 				       				{% if c.toDo is not empty %}
-				       				<h6 class="card-subtitle mb-2 text-muted">{{ 'consultation.view_consultation.content.toDo_content' | trans }}</h6>		
+				       				<h6 class="card-subtitle mb-2 text-light-osteolia">{{ 'consultation.view_consultation.content.toDo_content' | trans }}</h6>		
 				       				<p>
-				       					{{ c.toDo }}
+				       					{{ c.toDo  | nl2br }}
 				       				</p>				       				
 				       				{% endif %}
 		       					</div>

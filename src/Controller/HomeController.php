@@ -80,11 +80,16 @@ class HomeController extends AbstractController
 
     }
 
+
+
     private function userHomePage(Request $request, TranslatorInterface $translator): Response
     {
 
             $em = $this->getDoctrine()->getManager();
-            $consultations = $em->getRepository(Consultation::class)->findAll();
+
+            $today = new \Datetime(date('Y-m-d') . " 00:00:00");
+
+            $consultations = $em->getRepository(Consultation::class)->findConsultationsSince($today);
 
             return $this->render('home/homeUser.html.twig', [
                 'consultations' => $consultations,

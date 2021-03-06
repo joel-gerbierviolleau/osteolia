@@ -19,22 +19,23 @@ class ConsultationRepository extends ServiceEntityRepository
         parent::__construct($registry, Consultation::class);
     }
 
-    // /**
-    //  * @return Consultation[] Returns an array of Consultation objects
-    //  */
-    /*
-    public function findByExampleField($value)
+     /**
+    * @return Consultation[] Returns an array of Consultation objects
+    */
+    
+    public function findConsultationsSince($date)
     {
+
         return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
+            ->andWhere('c.creationDate > :val')
+            ->setParameter('val', $date)
+            ->orderBy('c.id', 'DESC')
+///            ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+    
 
     /*
     public function findOneBySomeField($value): ?Consultation
