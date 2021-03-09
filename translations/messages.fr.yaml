@@ -1,6 +1,6 @@
 app:
     name: "Osteolia"
-    version: "0.10"
+    version: "0.11"
 
 navbar: 
     public:
@@ -402,6 +402,7 @@ patient:
             age: "Age"
             nb_consultations: "Nombre de consultations" 
             last_consultation_date: "Dernière consultations le :"
+            no_consultations_yet: "Pas encore de consultation..."
             phone_number: "Tel"
             email: "Email"
             actions: "Actions"
@@ -470,6 +471,10 @@ patient:
         contactComment: 
             label: "Un complément d'information ?"
             placeholder: "Si votre patient(e) est mineur(e), indiquez ici le nom de son père/mere par exemple..."
+            CNIL_disclaimer: "Nous vous rappellons qu'en vertu de la loi Informatique et Liberté du 6 janvier 1978, vous ne devez pas saisir 
+                ici de commentaire relatif à l'orientation secuelle, religieuse, politique ou syndicale de vos patients. C'est lourdement 
+                puni par la loi et c'est mal de toute façon."
+        RGPD_consent: "Vous avez informé votre patient de ses droits à propos de ses données personnelles saisies dans Osteolia"
         new_patient_submit: "Sauvegarder et poursuivre !"
         new_patient_cancel: "Annuler"
         update_submit: "Mettre à jour et poursuivre"
@@ -484,6 +489,23 @@ patient:
         content: 
                 title: "Mise à jour du patient %patient_lastName% %patient_firstName%"
                 lead: "Les informations connues sont préaffichées. Les antécédents et les consultations passées ne soront pas modifiées :)"
+    search_results:
+        page_title: "Osteolia - Resultats de recherche..."
+        content:
+            title: "Vos patients s'appelant \"%searched_name%\""
+            lead: "Une bien belle liste de %total_patients% patients."
+            lead_without_patients_yet: "Ha. Aucun patient pour l'instant ! Soit vous n'avez pas encore de patient à ce nom, soit vous avez fait une petite faute de frappe..."
+            full_name: 'NOM Prénom'
+            age: "Age"
+            nb_consultations: "Nombre de consultations" 
+            last_consultation_date: "Dernière consultations le :"
+            no_consultations_yet: "Pas encore de consultation..."
+            phone_number: "Tel"
+            email: "Email"
+            actions: "Actions"
+            action: 
+                view: "Voir sa fiche"
+                update: "Mettre à jour"
 
 medical_history:
     messages:
@@ -536,7 +558,7 @@ consultation:
             date: "Consultation du %date%"
             anamnesia: "Anamnèse"
             procedures: "Pratiques effectuées"
-            toDo_content: "Actions à prévoir lors de la consultation"   
+            toDo_content: "Actions à prévoir lors de la prochaine consultation"   
             missing_anamnesia: "(très) Etrangement, aucune anamnèse n'a été enregistrée !"     
             missing_procedure: "Aucun acte ou pratique n'a été saisi pour cette consultation..."     
     new_consultation: 

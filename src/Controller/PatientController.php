@@ -8,8 +8,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\Form\Extension\Core\Type\SearchType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use App\Entity\Patient;
 use App\Form\PatientType;
+use App\Form\SearchPatientByNameType;
 
 class PatientController extends AbstractController
 {
@@ -130,6 +134,47 @@ class PatientController extends AbstractController
     	]);
     }
 
+
+    public function searchPatientByName(Request $request)
+    {
+
+        $form = $this->createForm(SearchPatientByNameType::class, [
+                'action' => $this->generateUrl('patient/search-results'),
+        ]); 
+
+        return $this->render('patient/searchModule.html.twig', [
+            'form' => $form->createView(),
+        ]);
+
+    }
+
+    /**
+    * @Route("/search-results", name="patient/search-results")
+    * @IsGranted("IS_AUTHENTICATED_FULLY")
+    */
+
+    public function displayPatientSearchResults(Request $request) : Response
+    {
+        $form = $this->createForm(SearchPatientByNameType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $this->addFlash('success', 'woohoo');
+            $searchedName = $form->getData('search');
+
+            $em = $this->getDoctrine()->getManager();
+            $results = $em->getRepository(Patient::class)->findBylastName($searchedName);
+
+        }
+
+        return $this->render('patient/searchResults.html.twig', [
+            'patients' => $results,
+            'searched_name' => $searchedName['search'],
+            'form' => $form->createview()
+        ]);
+
+    }
 
 
 }

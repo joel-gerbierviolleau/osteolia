@@ -1,0 +1,7 @@
+					{{ form_start(form, {'action': path('patient/search-results')}) }}
+						<div class="input-group">
+							{{ form_widget(form.search, {'attr' : {'placeholder' : 'home.user.search_patient'| trans}}) }}
+							{{ form_widget(form._token) }}
+							{{ form_row(form.submit,  {'label' : 'home.user.search' | trans , 'attr' : {'class' : 'btn btn-outline-osteolia ms-2'}}) }}						
+						</div>
+					{{ form_end(form, {'render_rest' : true}) }}	  		
