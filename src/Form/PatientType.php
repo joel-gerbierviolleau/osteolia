@@ -60,6 +60,7 @@ class PatientType extends AbstractType
             ])
             ->add('contactComment', TextareaType::class, [
                 'required' => false,
+                'help' => 'patient.form.contactComment.CNIL_disclaimer'
             ])
             ->add('submit', SubmitType::class)
         ;
